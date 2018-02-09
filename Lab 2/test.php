@@ -5,5 +5,11 @@
  * Date: 09/02/2018
  * Time: 15:44
  */
-echo $_POST["answer1"] ?>
+$answer = $_POST["answer1"];
+
+if ($answer == "horse") {
+    return "Correct!";
+}
+
+?>
 
