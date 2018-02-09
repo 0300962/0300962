@@ -1,3 +1,11 @@
+<html>
+<head>
+
+</head>
+<body>
+
+
+
 <?php
 /**
  * Created by PhpStorm.
@@ -13,3 +21,5 @@ if ($answer == "horse") {
 echo "Hello world!";
 ?>
 
+</body>
+</html>
