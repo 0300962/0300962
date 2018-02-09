@@ -10,6 +10,6 @@ $answer = $_POST["answer1"];
 if ($answer == "horse") {
     echo "Correct!";
 }
-
+echo "Hello world!";
 ?>
 
