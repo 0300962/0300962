@@ -8,7 +8,7 @@
 $answer = $_POST["answer1"];
 
 if ($answer == "horse") {
-    return "Correct!";
+    echo "Correct!";
 }
 
 ?>
