@@ -11,12 +11,17 @@
     </section>
     <main>
         <h2>Question 1</h2>
-        <form action="test.php" method="post">
+<!--        <form action="test.php" method="post"> --><form>
             <input type="text" name="answer1" placeholder="Type 'horse'">
             <input type="submit" value="Check">
         </form>
 
-        <?php?>
+        <?php
+            $answer = $_POST["answer1"];
+            if ($answer == "horse") {
+                 echo "Correct!";
+            }
+        ?>
 
     </main>
 
