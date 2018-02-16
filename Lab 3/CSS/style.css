@@ -41,7 +41,8 @@ a:hover{
 #subjects1, #subjects2 {
     float:left;
     padding:10px;
-    color: purple;
+    color: blue;
+    display: inline-block;
 }
 
 
@@ -49,12 +50,16 @@ section.articles{
     margin: 5px;
     color: purple;
     size: 14pt;
+    display: block;
 }
 
 #art1, #art2, #art3{
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 5px;
     background: lightgrey;
-    width:30%;
+    width:25%;
     margin: 5px;
     float: left;
 }
@@ -67,4 +72,7 @@ section.articles{
 
 h2{
     color: purple;
+}
+#foot{
+    display: inline-block;
 }
