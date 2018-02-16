@@ -1,0 +1,70 @@
+#quicklinks {
+    color: purple;
+    size: 8pt;
+    float: right;
+    background: lightgrey;
+    margin : 5px;
+}
+
+section.quickl li {
+    float: left;
+    padding: 5px;
+    list-style-type: none;
+}
+
+a:link{
+    color:purple;
+}
+
+a:visited{
+    color: darkred;
+}
+
+a:hover{
+    color: mediumpurple;
+}
+
+#searchbox {
+    color:purple;
+    size:12pt;
+    background: lightgrey;
+    padding: 5px;
+    width: 20%;
+}
+
+#links li{
+    float:left;
+    padding: 5px;
+    list-style-type: none;
+}
+
+#subjects1, #subjects2 {
+    float:left;
+    padding:10px;
+    color: purple;
+}
+
+
+section.articles{
+    margin: 5px;
+    color: purple;
+    size: 14pt;
+}
+
+#art1, #art2, #art3{
+    padding: 5px;
+    background: lightgrey;
+    width:30%;
+    margin: 5px;
+    float: left;
+}
+
+#footerlist li{
+    float: left;
+    padding: 5px;
+    list-style-type: none;
+}
+
+h2{
+    color: purple;
+}

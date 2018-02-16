@@ -1,0 +1,36 @@
+h2{
+    color: Red;
+    size:10;
+}
+p{
+    color: cornflowerblue;
+    size: 8;
+}
+
+#links{
+    align-content: right;
+    background: lightgreen;
+}
+
+#pinknightmare{
+    background: deeppink;
+    color: red;
+    text-effect: emboss;
+    border: 3px;
+    padding: 5px;
+}
+
+.Emphasis{
+    color: purple;
+    size: 14pt;
+    font-family: "Comic Sans MS";
+}
+
+#quicklinks{
+    width: 30%;
+    float:right;
+    padding: 5px;
+    border: dashed;
+    border-color: red;
+    background: lightseagreen;
+}

@@ -1,9 +1,24 @@
-<html>
-<head>
+<?php
+session_start();
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Page</title>
 </head>
 <body>
-
+<section>
+    <h2>Welcome to the Quiz</h2>
+    <p>This quiz is meant to use PHP to determine if you were correct.</p>
+</section>
+<main>
+    <h2>Question 1</h2>
+    <form action="checker.php" method="post">
+        <input type="text" name="answer1" placeholder="Type 'horse'">
+        <input type="submit" value="Check">
+    </form>
 
 
 <?php
@@ -13,13 +28,15 @@
  * Date: 09/02/2018
  * Time: 15:44
  */
-$answer = $_POST["answer1"];
 
-if ($answer == "horse") {
+if ($_SESSION["correct"] == 1) {
     echo "Correct!";
+} else {
+    echo "Incorrect or no answer";
 }
-echo "Hello world!";
+echo $correct;
 ?>
+</main>
 
 </body>
 </html>
