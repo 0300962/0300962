@@ -15,14 +15,12 @@
 </head>
 
 <body>
-<section> <!--Upper third of page-->
+<section id="top_row"> <!--Upper third of page-->
     <div>
-        <div id="login_bar">  <!--https://stackoverflow.com/questions/3135524/comparing-passwords-with-crypt-in-php
-                                  http://php.net/manual/en/function.password-hash.php
-                                  http://php.net/manual/en/function.password-verify.php        -->
+        <div id="login_bar">
             <form action="login.php">
                 Welcome! Please sign in:<br/>
-                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="username" placeholder="Username" >
                 <input type="password" name="password" placeholder="Password">
                 <input type="submit" value="Go!"
             </form>
@@ -31,16 +29,26 @@
         <a href="index.php">
             <img id="logo" src="#img\logo.png" alt="logo">
         </a>
+    </div>
 
+    <div>
         <div id="tabs">
-            <
+            <a href="about.php" title="About Us">Learn More</a>
+            <a href="projects.php" title="See current projects">Current Projects</a>
+            <a href="profile.php" title="View your profile page">My Profile</a>
         </div>
+    </div>
+</section>
+
+<section><!--Central image pane-->
+    <div id="main_images">
+        <img src="img\#" alt="Full-width image"/>
     </div>
 </section>
 
 <section> <!--Testimonials/blurb-->
     <div id="testimonials">
-        <h2>Testimonials</h2>
+        <h3>Testimonials</h3>
         <div class="testimonial">
             <h3>Some user</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at laoreet elit. Sed at dui justo. Phasellus leo nulla, consequat nec sodales vel, finibus at nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac lorem vel felis egestas bibendum. Integer venenatis bibendum eros, vel convallis sapien consequat a.</p>
@@ -54,7 +62,8 @@
 
 <section> <!--footer-->
     <div id="footer">
-
+        Developed by Brendan Campbell<br/>
+        2018, Robert Gordon University
 
     </div>
 </section>

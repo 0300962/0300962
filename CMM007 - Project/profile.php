@@ -23,6 +23,12 @@
 
 
 
+<section> <!--footer-->
+    <div id="footer">
+        Developed by Brendan Campbell<br/>
+        2018, Robert Gordon University
 
+    </div>
+</section>
 </body>
 </html>
