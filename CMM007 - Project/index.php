@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Jamrock</title>
+    <title>Welcome to my nightmare</title>
     <link rel="stylesheet" href = "style.css" type="text/css">
 </head>
 
