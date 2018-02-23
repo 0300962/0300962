@@ -1,0 +1,45 @@
+/*Site colour palette =
+
+ */
+
+#login_bar{ /* Top of page login area*/
+    background: lightgrey;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    position: absolute;
+    right: 5%;
+}
+
+
+
+#logo{ /* Top left every page, main logo */
+
+}
+
+
+
+#tabs{ /* Normally three tabs, in line with base of logo */
+
+}
+
+
+#testimonials{
+
+}
+
+.testimonial{ /* Index page, under the attract images - 2 columns text */
+    background: lightgrey;
+    padding:20px;
+    display:inline-block;
+    max-width: 35%;
+    margin: 10px;
+    margin-left: 5%;
+}
+
+
+
+
+#footer{ /* Base of every page*/
+
+}
