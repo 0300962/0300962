@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing CSS Flexbox</title>
+    <style>
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: #22758e;
+            max-width: 800px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .flex-container > div {
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            background-color: #b63b3b;
+            padding: 5px;
+        }
+        #wider{
+            flex-grow: 4;
+            background-color: #e3e8e6;
+            order: 1;
+        }
+        #narrow {
+            flex-grow: 1;
+            background-color: #f9c414;
+            order: 2;
+            max-width: 120px;
+            max-height: 120px;
+        }
+        #wider2{
+            flex-grow: 4;
+            background-color: #e3e8e6;
+            order: 4;
+        }
+        #narrow2 {
+            flex-grow: 1;
+            background-color: #f9c414;
+            order: 3;
+            max-width: 120px;
+            max-height: 120px;
+        }
+    </style>
+</head>
+<body>
+<p>This page is for testing the CSS Flex-box model</p>
+
+<div class="flex-container">
+    <div>Text box 1</div>
+    <div>Text box 2</div>
+    <div>Text box 3</div>
+    <div>Text box 4</div>
+    <div>Text box 5</div>
+</div>
+<div class="flex-container">
+    <div id="wider">
+        <h2>Wider paragraph</h2>
+        <p>Lorem ipsum etc</p>
+    </div>
+    <div id="narrow">Narrower box</div>
+</div>
+<div class="flex-container">
+    <div id="wider2">
+        <h2>Wider paragraph</h2>
+        <p>Lorem ipsum etc</p>
+    </div>
+    <div id="narrow2">Narrower box</div>
+</div>
+<div class="flex-container">
+    <div>Text box 1</div>
+    <div>Text box 2</div>
+    <div>Text box 3</div>
+    <div>Text box 4</div>
+
+</div>
+
+
+
+</body>
+</html>
