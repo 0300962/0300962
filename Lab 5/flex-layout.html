@@ -6,7 +6,7 @@
     <style>
         .flex-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             flex-wrap: wrap;
             background-color: #22758e;
             max-width: 800px;
@@ -19,12 +19,14 @@
             margin: 10px;
             text-align: center;
             background-color: #b63b3b;
+            box-shadow: 5px 5px 5px grey;
             padding: 5px;
         }
         #wider{
             flex-grow: 4;
             background-color: #e3e8e6;
             order: 1;
+            column-count: 2;
         }
         #narrow {
             flex-grow: 1;
@@ -45,6 +47,44 @@
             max-width: 120px;
             max-height: 120px;
         }
+        /*  IF screen is less than 400px wide, these override the above definitions  */
+        @media (max-width:400px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .flex-container > div {
+                width: 90%;
+                margin: 10px;
+                text-align: center;
+                background-color: #b63b3b;
+                padding: 5px;
+            }
+            #wider{
+                flex-grow: 4;
+                background-color: #e3e8e6;
+                order: 1;
+                column-count: 1;
+            }
+            #narrow {
+                flex-grow: 1;
+                background-color: #f9c414;
+                order: 2;
+                max-width: 50%;
+                max-height: 120px;
+            }
+            #wider2{
+                flex-grow: 4;
+                background-color: #e3e8e6;
+                order: 4;
+            }
+            #narrow2 {
+                flex-grow: 1;
+                background-color: #f9c414;
+                order: 3;
+                max-width: 50%;
+                max-height: 120px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -60,14 +100,14 @@
 <div class="flex-container">
     <div id="wider">
         <h2>Wider paragraph</h2>
-        <p>Lorem ipsum etc</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     <div id="narrow">Narrower box</div>
 </div>
 <div class="flex-container">
     <div id="wider2">
         <h2>Wider paragraph</h2>
-        <p>Lorem ipsum etc</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     <div id="narrow2">Narrower box</div>
 </div>
