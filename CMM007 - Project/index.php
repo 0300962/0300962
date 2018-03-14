@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to my nightmare</title>
-    <link rel="stylesheet" href = "style.css" type="text/css">
+    <link rel="stylesheet" href = "old_style.css" type="text/css">
 </head>
 
 <body>

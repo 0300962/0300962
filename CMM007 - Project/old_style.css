@@ -1,0 +1,91 @@
+/*Site colour palette =
+http://www.color-hex.com/color-palette/54871
+ #22758e (34,117,142) - Blue
+ #b63b3b (182,59,59) - Red
+ #f9c414 (249,196,20) - Yellow
+ #e3e8e6 (227,232,230) - Whitish
+ #4c4555 (76,69,85) - Dark brown
+
+ */
+
+#top_row{
+    display: block;
+}
+
+#login_bar{ /* Top of page login area*/
+    background: #e3e8e6;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #22758e;
+    display: inline-block;
+    position: absolute;
+    right: 5%;
+}
+
+#logo{ /* Top left every page, main logo */
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin-left: 5%;
+}
+
+#tabs {
+    position:absolute;
+    right: 5%;
+}
+
+#tabs a:link{ /* Normally three tabs, in line with base of logo */
+    background : #e3e8e6;
+    color: #22758e;
+    display: inline-block;
+    border: 1px solid #22758e;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+#tabs a:visited{
+    color:#4c4555;
+}
+
+#main_images{
+    max-height: 200px;
+    max-width: 90%;
+    background: #f9c414;
+    padding: 5px;
+    border: 1px solid #22758e;
+    position: relative;
+    top: 40px;
+    left: 5%;
+    /*display: block;*/
+    margin-bottom: 50px;
+
+}
+
+#testimonials{
+    color: #b63b3b;
+    position: relative;
+    left: 10%;
+    display: block;
+}
+
+.testimonial{ /* Index page, under the attract images - 2 columns text */
+    background: #e3e8e6;
+    padding:10px;
+    display:inline-block;
+    max-width: 35%;
+    margin: 10px;
+}
+
+#footer{ /* Base of every page*/
+    color: #b63b3b;
+    display: inline-block;
+    width:90%;
+    text-align: center;
+    background: #e3e8e6;
+    border: 1px solid #22758e;
+    padding: 5px;
+    position: absolute;
+    bottom: 5px;
+    left: 5%;
+}
