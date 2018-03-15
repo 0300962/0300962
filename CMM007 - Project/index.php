@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Bobsan
+ * User: 0300962
  * Date: 15-Mar-18
  * Time: 1:17 PM
  */?>
@@ -16,7 +16,7 @@
     </div>
 
     <div id="Body">
-
+        <h1>Body section!</h1><br/>
     </div>
 
     <div id = "Footer">
