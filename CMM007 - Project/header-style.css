@@ -1,0 +1,88 @@
+/*Site colour palette =
+http://www.color-hex.com/color-palette/54871
+ #22758e (34,117,142) - Blue
+ #b63b3b (182,59,59) - Red
+ #f9c414 (249,196,20) - Yellow
+ #e3e8e6 (227,232,230) - Whitish
+ #4c4555 (76,69,85) - Dark brown
+
+ */
+body{
+    background-color: #e3e8e6;
+}
+.header-flex-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #22758e;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar > div{
+    width: 130px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: -20px;
+    background-color: #b63b3b;
+    color: #e3e8e6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #f9c414;
+    border-radius: 25px 0px 0px 0px;
+}
+.navbar > div:hover{
+    background-color: #f9c414;
+}
+.navbar > div > a:link, a:visited {
+    color: #e3e8e6;
+    padding-left: 40px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-right: 20px;
+}
+.navbar > div > a:hover, a:active {
+    color: #b63b3b;
+}
+
+#logo {
+
+}
+
+#colour1{
+    width: 20px;
+    height: 20px;
+    background-color:#22758e ;
+}
+#colour2{
+    width: 20px;
+    height: 20px;
+    background-color:#b63b3b ;
+}
+#colour3{
+    width: 20px;
+    height: 20px;
+    background-color:#f9c414 ;
+}
+#colour4{
+    width: 20px;
+    height: 20px;
+    background-color:#e3e8e6 ;
+}
+#colour5{
+    width: 20px;
+    height: 20px;
+    background-color:#4c4555 ;
+}

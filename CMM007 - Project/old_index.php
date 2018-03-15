@@ -26,7 +26,7 @@
             </form>
         </div>
 
-        <a href="index.php">
+        <a href="old_index.php">
             <img id="logo" src="#img\logo.png" alt="logo">
         </a>
     </div>

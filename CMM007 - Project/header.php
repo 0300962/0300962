@@ -9,24 +9,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href = "style.css" type="text/css">
+    <link rel="stylesheet" href = "header-style.css" type="text/css">
 </head>
 <body>
     <div class="header-flex-container">
+        <div id="logo">
+            <a href="old_index.php">
+                <img id="logo" src="img\logo.png" alt="logo">
+            </a>
+        </div>
+
         <div id="Login">
             <?php #Need to include the Login function as a file here ?>
         </div>
 
-        <div id="logo">
-            <a href="index.php">
-                <img id="logo" src="img\logo.png" alt="logo">
-            </a>
-        </div>
+        <div id="colour1"></div>
+        <div id="colour2"></div>
+        <div id="colour3"></div>
+        <div id="colour4"></div>
+        <div id="colour5"></div>
+
     </div>
     <div class="navbar">
-        <div>About</div>
-        <div>Projects</div>
-        <div>My Profile</div>
+        <div><a href="#">About</a></div>
+        <div><a href="#">Projects</a></div>
+        <div><a href="#">My Profile</a></div>
     </div>
 
     </div>
@@ -36,3 +43,4 @@
 
 
 </body>
+</html>
