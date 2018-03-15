@@ -16,7 +16,7 @@
     </div>
 
     <div id="Body">
-        <h1>Body section!</h1><br/>
+        <?php include 'front-page.php';?>
     </div>
 
     <div id = "Footer">

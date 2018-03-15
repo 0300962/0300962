@@ -18,6 +18,23 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+#login{
+    max-width: 200px;
+    flex-direction: row;
+}
+#login > a:link, a:visited{
+    color: #e3e8e6;
+    background-color: #b63b3b;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+#login > a:hover {
+    background-color: #f9c414;
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -59,6 +76,10 @@ body{
 
 #logo {
 
+}
+
+#colourtest{
+    flex-direction: column;
 }
 
 #colour1{

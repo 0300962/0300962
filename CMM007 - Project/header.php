@@ -19,15 +19,17 @@
             </a>
         </div>
 
-        <div id="Login">
-            <?php #Need to include the Login function as a file here ?>
+        <div id="colourtest">
+            <div id="colour1"></div>
+            <div id="colour2"></div>
+            <div id="colour3"></div>
+            <div id="colour4"></div>
+            <div id="colour5"></div>
         </div>
 
-        <div id="colour1"></div>
-        <div id="colour2"></div>
-        <div id="colour3"></div>
-        <div id="colour4"></div>
-        <div id="colour5"></div>
+        <div id="Login">
+            <?php include 'login.php' ?>
+        </div>
 
     </div>
     <div class="navbar">

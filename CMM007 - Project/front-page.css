@@ -7,14 +7,40 @@ http://www.color-hex.com/color-palette/54871
  #4c4555 (76,69,85) - Dark brown
 
  */
-.container{
+.imgcontainer{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 800px;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container > div{
 
 }
+#images{
+    height: 200px;
+    max-width: 800px;
+    background-color: #f9c414;
+}
 
 #columns{
+    padding: 10px;
+    column-count: 2;
+    text-align: justify;
+    color: #b63b3b;
+    background-color: #e3e8e6;
+
+}
+#social{
 
 }
