@@ -6,7 +6,7 @@
  * Time: 1:17 PM
  */
 session_start();
-$_SESSION['last_page'] = 'index.php';
+$_SESSION['last_page'] = 'profile.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ $_SESSION['last_page'] = 'index.php';
     </div>
 
     <div id="Body">
-        <?php include 'front-page.php';?>
+        <?php include 'profile-page.php';?>
     </div>
 
     <div id = "Footer">

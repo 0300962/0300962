@@ -9,12 +9,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href = "header-style.css" type="text/css">
+    <link rel="stylesheet" href = "CSS/header-style.css" type="text/css">
 </head>
 <body>
     <div class="header-flex-container">
         <div id="logo">
-            <a href="old_index.php">
+            <a href="index.php">
                 <img id="logo" src="img\logo.png" alt="logo">
             </a>
         </div>
@@ -35,7 +35,7 @@
     <div class="navbar">
         <div><a href="#">About</a></div>
         <div><a href="#">Projects</a></div>
-        <div><a href="#">My Profile</a></div>
+        <div><a href="profile.php">My Profile</a></div>
     </div>
 
     </div>

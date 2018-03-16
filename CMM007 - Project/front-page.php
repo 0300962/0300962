@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href = "front-page.css" type="text/css">
+    <link rel="stylesheet" href = "CSS/front-page.css" type="text/css">
 </head>
 <body>
     <div class="imgcontainer">

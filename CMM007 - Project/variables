@@ -1,0 +1,26 @@
+$_SESSION['logged-in'] = Login status
+$_SESSION['name'] = User Firstname
+$_SESSION['userno'] = User ID number
+$_SESSION['last_page'] = last page User was on
+
+$un = Input, sanitized username
+$hashedUN = hashed $un
+$pw = Input, sanitized password
+$pwhash = Hashed PW returned from DB
+
+
+
+$sql = re-used SQL string for queries
+$result = re-used SQL string for queries
+$row = re-used SQL string for queries
+
+
+
+
+
+
+
+
+
+
+
