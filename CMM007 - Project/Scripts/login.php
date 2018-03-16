@@ -25,7 +25,7 @@ if (isset($_SESSION['logged-in'])) {
           </div>";
 } else {
     echo "<div id='login'>
-            <form action='login.php' method='post'>
+            <form name='form' method='post'>
                 Welcome! Please sign in:<br/>
                 <input type='text' name='username' placeholder='Username' ><br/>
                 <input type='password' name='password' placeholder='Password'>
@@ -39,7 +39,7 @@ if (isset($_POST['logout'])) {
     /*Wipes Session and redirects to homepage*/
     $_SESSION = array();
     session_destroy();
-    echo "<script> window.location='index.php'</script>";
+    header("location='../index.php'");
 } else if(isset($_POST['login'])) {
     /* Sanitizes user inputs*/
     $un = filter_var($_POST['username'], FILTER_SANITIZE_EMAIL);
@@ -55,6 +55,7 @@ if (isset($_POST['logout'])) {
     $result = mysqli_query($dbcon, $sql);
     $row = mysqli_fetch_assoc($result);
     $pwhash = $row['hashedPassword'];
+    mysqli_close($dbcon);
 
     /*Checks whether password matches the one held in DB*/
     if (password_verify($pw, $pwhash)){
@@ -63,7 +64,7 @@ if (isset($_POST['logout'])) {
         $_SESSION['name'] = $row['name'];
         $_SESSION['userno'] = $row['userNo'];
         /*Forwards back to last page*/
-        echo "<script> window.location='{$_SESSION['last_page']}'</script>";
+        header("location='{$_SESSION['last_page']}'");
     }
 }
 

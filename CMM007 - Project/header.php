@@ -15,7 +15,7 @@
     <div class="header-flex-container">
         <div id="logo">
             <a href="index.php">
-                <img id="logo" src="img\logo.png" alt="logo">
+                <img id="logo" src="img/logo.png" alt="logo">
             </a>
         </div>
 
@@ -28,7 +28,7 @@
         </div>
 
         <div id="Login">
-            <?php include 'login.php' ?>
+            <?php include 'Scripts/login.php' ?>
         </div>
 
     </div>
