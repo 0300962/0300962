@@ -33,7 +33,7 @@
 
     </div>
     <div class="navbar">
-        <div><a href="#">About</a></div>
+        <div><a href="about.php">About</a></div>
         <div><a href="#">Projects</a></div>
         <div><a href="profile.php">My Profile</a></div>
     </div>

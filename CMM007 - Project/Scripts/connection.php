@@ -9,7 +9,7 @@
 DEFINE ('DB_USER','0300962');
 DEFINE ('DB_PSWD','0300962');
 DEFINE ('DB_HOST','localhost');
-DEFINE ('DB_NAME','db0300962_cmm007');
+DEFINE ('DB_NAME','cmm007');
 
 $dbcon = mysqli_connect(DB_HOST,DB_USER,DB_PSWD,DB_NAME);
 

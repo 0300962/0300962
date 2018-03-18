@@ -26,10 +26,11 @@ if (isset($_SESSION['logged-in'])) {
 } else {
     echo "<div id='login'>
             <form name='form' method='post'>
-                Welcome! Please sign in:<br/>
-                <input type='text' name='username' placeholder='Username' ><br/>
-                <input type='password' name='password' placeholder='Password'>
-                <input id='login' type='submit' value='Go!'>
+                Welcome! Please sign in or register:<br/>
+                <input type='text' name='username' placeholder='Email Address' ><br/>
+                <input type='password' name='password' placeholder='Password'><br/>
+                <input id='login' type='submit' value='Sign in'>
+                <input id='register' type='submit' value='Register'>
             </form>
         </div>";
 }
@@ -66,9 +67,29 @@ if (isset($_POST['logout'])) {
         /*Forwards back to last page*/
         header("location='{$_SESSION['last_page']}'");
     }
+} else if(isset($_POST['register'])) {
+    echo "New User";
+    /* Sanitizes user inputs*/
+    $un = filter_var($_POST['username'], FILTER_SANITIZE_EMAIL);
+    $pw = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    /* Hashes sanitized username and connects to the DB*/
+    $hashedUN = password_hash($un, PASSWORD_DEFAULT);
+    $hashedPW = password_hash($pw, PASSWORD_DEFAULT);
+    include_once 'connection.php';
+    /*Retrieves the hashed password and User's Name from the database*/
+    $sql = "INSERT INTO LoginDetails (hashedLogin, hashedPassword)
+            VALUES ({$hashedUN}, {$hashedPW})";
+    $result = mysqli_query($dbcon, $sql);
+    if($result) {
+        header("location='{$_SESSION['last_page']}'");
+    } else {
+        echo "Error adding new user";
+    }
+    mysqli_close($dbcon);
 }
-
-
+/*Wipes temporary variables*/
+unset ($pw);
+unset ($un);
 
 ?>
 

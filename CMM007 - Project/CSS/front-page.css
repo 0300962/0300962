@@ -18,7 +18,7 @@ http://www.color-hex.com/color-palette/54871
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    max-width: 800px;
+    max-width: 1000px;
     max-height: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -29,7 +29,7 @@ http://www.color-hex.com/color-palette/54871
 }
 #images{
     height: 200px;
-    max-width: 800px;
+    max-width: 1000px;
     background-color: #f9c414;
 }
 
