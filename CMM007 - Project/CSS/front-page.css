@@ -10,8 +10,11 @@ http://www.color-hex.com/color-palette/54871
 .imgcontainer{
     display: flex;
     flex-direction: row;
+    max-width: 1000px;
+    max-height: 400px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
 }
 
 .container{
@@ -24,12 +27,11 @@ http://www.color-hex.com/color-palette/54871
     margin-right: auto;
 }
 
-.container > div{
 
-}
 #images{
     height: 200px;
     max-width: 1000px;
+    width:1000px;
     background-color: #f9c414;
 }
 

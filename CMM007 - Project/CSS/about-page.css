@@ -6,6 +6,8 @@ http://www.color-hex.com/color-palette/54871
  #e3e8e6 (227,232,230) - Whitish
  #4c4555 (76,69,85) - Dark brown
 
+
+Images courtesy of www.pexels.com
  */
 
 .container{
@@ -13,15 +15,17 @@ http://www.color-hex.com/color-palette/54871
     flex-direction: row;
     justify-content: space-around;
     max-width: 1000px;
-    //max-height: 400px;
+    /*max-height: 400px;*/
     margin-left: auto;
     margin-right: auto;
 }
 
 #img1, #img2{
-    height: 200px;
-    width: 200px;
-    background-color: #f9c414;
+    /*max-width: 200px;*/
+    margin: 10px;
+    margin-top: 30px;
+
+    /*background-color: #f9c414;*/
 }
 
 #txt1, #txt2{
