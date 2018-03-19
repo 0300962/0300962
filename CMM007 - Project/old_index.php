@@ -18,7 +18,7 @@
 <section id="top_row"> <!--Upper third of page-->
     <div>
         <div id="login_bar">
-            <form action="Scripts/login.php">
+            <form action="Scripts/loginPanel.php">
                 Welcome! Please sign in:<br/>
                 <input type="text" name="username" placeholder="Username" >
                 <input type="password" name="password" placeholder="Password">

@@ -28,7 +28,7 @@
         </div>
 
         <div id="Login">
-            <?php include 'Scripts/login.php' ?>
+            <?php include 'Scripts/loginPanel.php' ?>
         </div>
 
     </div>
