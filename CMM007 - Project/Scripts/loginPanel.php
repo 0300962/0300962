@@ -5,11 +5,6 @@
  * Date: 23/02/2018
  * Time: 15:49
  */
-/*
-https://stackoverflow.com/questions/3135524/comparing-passwords-with-crypt-in-php
-http://php.net/manual/en/function.password-hash.php
-http://php.net/manual/en/function.password-verify.php
-*/
 
 /*session_start();
 $_SESSION['logged-in'] = true;
@@ -25,17 +20,17 @@ if (isset($_SESSION['logged-in'])) {
           </div>";
 } else {
     echo "<div id='login'>
-            <form name='form' method='post'>
+            <form name='loginform' method='post'>
                 Welcome! Please sign in or register:<br/>
                 <input type='text' name='username' placeholder='Email Address' ><br/>
                 <input type='password' name='password' placeholder='Password'><br/>
                 <input id='login' type='submit' value='Sign in'>
-                <input id='register' type='submit' value='Register'>
             </form>
-        </div>";
+            <a href='register.php' type='button'>Register</a> 
+        </div>"; /*Link to register.php shows as wrong, but is fine*/
 }
 
-/*Checks whether Login.php has been called for a reason*/
+/*Checks whether loginPanel.php has been called for a reason*/
 if (isset($_POST['logout'])) {
     /*Wipes Session and redirects to homepage*/
     $_SESSION = array();
