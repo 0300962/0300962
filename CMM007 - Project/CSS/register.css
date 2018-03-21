@@ -24,7 +24,9 @@ http://www.color-hex.com/color-palette/54871
 }
 
 #disclaimer{
-
+    max-width: 800px;
+    padding: 10px;
+    text-align: justify;
 }
 
 #form{
