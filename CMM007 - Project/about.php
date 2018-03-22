@@ -5,7 +5,9 @@
  * Date: 18-Mar-18
  * Time: 11:01 PM
  */
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $_SESSION['last_page'] = 'about.php';
 ?>
 

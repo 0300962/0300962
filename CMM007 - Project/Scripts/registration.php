@@ -6,7 +6,9 @@
  * Time: 5:57 PM
  */
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 /* Returns to the register page with error code*/
 function redirect($err_no) {
