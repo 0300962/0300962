@@ -32,7 +32,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         FROM projects
                         WHERE status = 1";
                 $result = mysqli_query($dbcon, $sql);
-                echo "<table border='1px solid'><tr><th></th><th>Project</th><th>Project Summary</th></tr>";
+                echo "<table><tr><th></th><th>Project</th><th>Project Summary</th></tr>";
                 if(mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_array($result)){
                         echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td>{$row['summary']}</td></tr>";
