@@ -10,11 +10,10 @@ session_start();
 
 /* Returns to the register page with error code*/
 function redirect($err_no) {
-    echo "test";
-    echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../register.php?error={$err_no}'</script></html>";
+   echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../register.php?error={$err_no}'</script></html>";
 }
 
-include_once 'Scripts/connection.php';
+include_once 'connection.php';
 
 //Takes form data from register-page.php and creates new user in DB
 $un = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -43,26 +42,35 @@ if ($pw != $pw2) {
         echo "Username already registered!";
         redirect(3);
     } else {
-        $imgext = pathinfo($_POST['image'], PATHINFO_EXTENSION);
-        if ($imgext !== 'jpg' && $imgext !== 'jpeg') {
-            echo "Error adding login details";
-            redirect(4);
+        $imgext = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        if ($imgext != 'jpg' && $imgext != 'jpeg') {
+            echo "Image file not JPG or JPEG";
+            redirect(7);
         } else {
             $sql = "INSERT INTO LoginDetails (hashedLogin, hashedPassword)
-                VALUES ({$hashedUN}, {$hashedPW})";
+                VALUES ('{$hashedUN}','{$hashedPW}')";
             $result = mysqli_query($dbcon, $sql);
             if ($result) {
                 /*Retrieves user number for just-added account*/
-                $sql = "SELECT userNo
-                        FROM LoginDetails
-                        WHERE hashedLogin = {$hashedUN}";
-                $result = mysqli_query($dbcon, $sql);
-                $row = mysqli_fetch_assoc($result);
-
-                $userNo = $row['userNo'];
+                $userNo = $dbcon->insert_id;
                 $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-                $image = $_POST['image'];
                 $type = $_POST['type'];
+
+                /* Checks image size, moves to directory */
+                $imgfolder = "../projectImages/";
+                $savedimg = $imgfolder.basename($_FILES["image"]["name"]);
+                if ($_FILES["image"]["size"] > 750000) {
+                    echo "Outsized image (>750Kb)";
+                    redirect(8);
+                } else {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $savedimg)) {
+                        echo "Image uploaded ok";
+                    } else {
+                        echo "Image upload fail- duplicate name?";
+                        redirect(9);
+                    }
+                }
+
                 /*Checks whether the UserType flag has been tampered-with*/
                 if (!in_array($type, range(0, 1, 1))) {
                     echo "Invalid user type";
@@ -70,17 +78,22 @@ if ($pw != $pw2) {
                 } else {
                     /*Adds new user details to the system*/
                     $sql = "INSERT INTO Users (userNo, name, image, reputation, userType)
-                VALUES ({$userNo}, {$name}, {$image}, 5, {$type})";
+                            VALUES ('{$userNo}', '{$name}', '{$savedimg}', '5', {$type})";
                     $result = mysqli_query($dbcon, $sql);
+
                     if ($result) {
-                        header("Location: 'index.php'");
+                        echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../index.php'</script></html>";
+                    } else {
+                        echo $sql;
+                        redirect(6);
                     }
                 }
+            } else {
+                echo "Couldn't create login details";
+                echo "{$sql}";
+                redirect(4);
             }
             mysqli_close($dbcon);
-        } else {
-            echo "Image file not JPG or JPEG";
-            redirect(7);
         }
     }
 }

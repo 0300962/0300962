@@ -41,6 +41,12 @@ if (session_status() === PHP_SESSION_NONE) {
                     case 7:
                         echo "Error: Image file not .jpg or .jpeg.";
                         break;
+                    case 8:
+                        echo "Error: Image greater than 750KB.";
+                        break;
+                    case 9:
+                        echo "Image upload failure. Possible duplicate image name.";
+                        break;
                     default:
                         echo "Unknown error: Please contact system administrator.";
                 }
