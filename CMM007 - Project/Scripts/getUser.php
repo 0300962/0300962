@@ -7,7 +7,7 @@
  */
 
 function getUser($userNo) {
-    include_once 'connection.php';
+    include_once 'Scripts/connection.php';
 
     $sql = "SELECT name, image, reputation, userType
                 FROM Users

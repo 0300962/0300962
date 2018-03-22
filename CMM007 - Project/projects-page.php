@@ -5,7 +5,9 @@
  * Date: 20/03/2018
  * Time: 13:04
  */
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <html lang="en">
@@ -25,19 +27,19 @@ session_start();
         </div>
         <div id="projectlist">
             <?php
-                /*include_once 'Scripts/connection.php';
+                include_once 'Scripts/connection.php';
                 $sql = "SELECT name, tags, summary, deadline, image
                         FROM projects
                         WHERE status = 1";
                 $result = mysqli_query($dbcon, $sql);
-                echo "<table><tr><th></th><th>Project</th><th>Deadline</th></tr>";
+                echo "<table border='1px solid'><tr><th></th><th>Project</th><th>Project Summary</th></tr>";
                 if(mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_array($result)){
-                        echo "<tr><td><img src = {$row['image']} alt = 'Project image'></td><td>{$row['name']}</td><td>{$row['summary']}</td></tr>";
+                        echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td>{$row['summary']}</td></tr>";
                     };
-                } else {*/
+                } else {
                     echo "<tr><td colspan='3'>No projects found!</td></tr>";
-             //   }
+                }
                 echo "</table>";
             ?>
         </div>

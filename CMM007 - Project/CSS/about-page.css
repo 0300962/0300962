@@ -19,12 +19,12 @@ Images courtesy of www.pexels.com
     margin-left: auto;
     margin-right: auto;
 }
+.container > div{
+    margin: 10px;
+}
 
 #img1, #img2{
     /*max-width: 200px;*/
-    margin: 10px;
-    margin-top: 30px;
-
     /*background-color: #f9c414;*/
 }
 

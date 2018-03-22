@@ -5,7 +5,9 @@
  * Date: 19-Mar-18
  * Time: 6:01 PM
  */
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <html lang="en">
@@ -59,7 +61,7 @@ session_start();
         </div>
 
         <div id="form">
-            <form name="register" action="Scripts/registration.php" method = "post">
+            <form name="register" action="Scripts/registration.php" method = "post" enctype="multipart/form-data">
                 Name =
                 <input name="name" type = "text" placeholder="Your Name"><br/><br/>
                 Email address =
@@ -68,7 +70,7 @@ session_start();
                 <input name="password1" type="password" placeholder="Password"><br/><br/>
                 Confirm Password =
                 <input name="password2" type="password" placeholder="Password"><br/><br/>
-                Profile image =
+                Profile image (.jpg or .jpeg only) =
                 <input name="image" type="file"><br/><br/>
                 Account type =
                 <select title="Account type = " name="type">

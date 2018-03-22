@@ -8,20 +8,25 @@
 
 session_start();
 
-include_once 'connection.php';
+/* Returns to the register page with error code*/
+function redirect($err_no) {
+    echo "test";
+    echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../register.php?error={$err_no}'</script></html>";
+}
+
+include_once 'Scripts/connection.php';
 
 //Takes form data from register-page.php and creates new user in DB
-
 $un = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $pw = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
 $pw2 = filter_var($_POST['password2'], FILTER_SANITIZE_STRING);
 
 if ($pw != $pw2) {
     echo "Passwords do not match!";
-    header("location='register.php?error=1'");
+    redirect('1');
 } else if(!filter_var($un, FILTER_VALIDATE_EMAIL)){
     echo "Invalid email address!";
-    header("location='register.php?error=2'");
+    redirect('2');
 } else {
     /* Hashes sanitized username and connects to the DB*/
     $hashedUN = password_hash($un, PASSWORD_DEFAULT);
@@ -36,16 +41,19 @@ if ($pw != $pw2) {
 
     if ($result) {
         echo "Username already registered!";
-        header("location='register.php?error=3'");
+        redirect(3);
     } else {
         $imgext = pathinfo($_POST['image'], PATHINFO_EXTENSION);
-        if ($imgext == 'jpg' || $imgext == 'jpeg'){
+        if ($imgext !== 'jpg' && $imgext !== 'jpeg') {
+            echo "Error adding login details";
+            redirect(4);
+        } else {
             $sql = "INSERT INTO LoginDetails (hashedLogin, hashedPassword)
                 VALUES ({$hashedUN}, {$hashedPW})";
             $result = mysqli_query($dbcon, $sql);
             if ($result) {
                 /*Retrieves user number for just-added account*/
-                $sql= "SELECT userNo
+                $sql = "SELECT userNo
                         FROM LoginDetails
                         WHERE hashedLogin = {$hashedUN}";
                 $result = mysqli_query($dbcon, $sql);
@@ -56,9 +64,9 @@ if ($pw != $pw2) {
                 $image = $_POST['image'];
                 $type = $_POST['type'];
                 /*Checks whether the UserType flag has been tampered-with*/
-                if (!in_array($type,range(0,1, 1))){
+                if (!in_array($type, range(0, 1, 1))) {
                     echo "Invalid user type";
-                    header("location='register.php?error=5'");
+                    redirect(5);
                 } else {
                     /*Adds new user details to the system*/
                     $sql = "INSERT INTO Users (userNo, name, image, reputation, userType)
@@ -68,14 +76,11 @@ if ($pw != $pw2) {
                         header("Location: 'index.php'");
                     }
                 }
-            } else {
-                echo "Error adding login details";
-                header("location='register.php?error=6'");
             }
             mysqli_close($dbcon);
         } else {
             echo "Image file not JPG or JPEG";
-            header("location='register.php?error=7'");
+            redirect(7);
         }
     }
 }

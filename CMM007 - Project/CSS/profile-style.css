@@ -15,12 +15,15 @@ http://www.color-hex.com/color-palette/54871
     margin-left: auto;
     margin-right: auto;
 }
+.profile-flex-c > div {
+    margin: 10px;
+}
 
 #lh-column{
     flex-direction: column;
     flex-grow: 1;
     background-color: #f9c414;
-
+    margin-right: 10px;
 }
 #profile-pic{
     max-height: 200px;
