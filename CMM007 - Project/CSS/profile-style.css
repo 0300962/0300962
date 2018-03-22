@@ -25,12 +25,12 @@ http://www.color-hex.com/color-palette/54871
     background-color: #f9c414;
     margin-right: 10px;
 }
-#profile-pic{
-    max-height: 200px;
-    max-width: 200px;
+#profile-pic > img{
+    display: block;
 }
 
 #details{
+    margin-top: 20px;
     flex-direction: column;
 }
 

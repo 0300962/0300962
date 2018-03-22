@@ -5,7 +5,10 @@
  * Date: 20/03/2018
  * Time: 13:04
  */
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $_SESSION['last_page'] = 'projects.php';
 ?>
 

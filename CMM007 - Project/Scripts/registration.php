@@ -57,7 +57,7 @@ if ($pw != $pw2) {
                 $type = $_POST['type'];
 
                 /* Checks image size, moves to directory */
-                $imgfolder = "../projectImages/";
+                $imgfolder = "projectImages/";
                 $savedimg = $imgfolder.basename($_FILES["image"]["name"]);
                 if ($_FILES["image"]["size"] > 750000) {
                     echo "Outsized image (>750Kb)";

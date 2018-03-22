@@ -47,6 +47,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     case 9:
                         echo "Image upload failure. Possible duplicate image name.";
                         break;
+                    case 10:
+                        echo "Incorrect Username or Password; please check and try again.";
+                        break;
                     default:
                         echo "Unknown error: Please contact system administrator.";
                 }

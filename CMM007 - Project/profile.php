@@ -5,7 +5,7 @@
  * Date: 15-Mar-18
  * Time: 1:17 PM
  */
-session_start();
+
 $_SESSION['last_page'] = 'profile.php';
 ?>
 

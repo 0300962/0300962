@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 /*Presents login boxes if user is not logged-in*/
-if (isset($_SESSION['logged-in'])) {
+if ($_SESSION['logged-in'] == true) {
     echo "Welcome, {$_SESSION['name']}!";
     echo "<div id='login'>
             <form name='form' action='Scripts/login.php' method='post'>
@@ -26,7 +26,7 @@ if (isset($_SESSION['logged-in'])) {
                 <input type='password' name='password' placeholder='Password'><br/>
                 <input id='login' type='submit' name='login' value='Sign in'>
             </form>
-            Or Register:<br/>
+            Or Register:<br/><br/>
             <a href='register.php' type='button'>Register</a> 
         </div>"; /*Link to register.php shows as wrong, but is fine*/
 }

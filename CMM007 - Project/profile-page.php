@@ -6,6 +6,10 @@
  * Time: 15:16
  */
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if(isset($_SESSION['userFile'])){
     /*User has requested another user's profile page*/
     $name = $_SESSION['userFile']['name'];
@@ -13,7 +17,7 @@ if(isset($_SESSION['userFile'])){
     $reputation = $_SESSION['userFile']['reputation'];
     $userType = $_SESSION['userFile']['userType'];
     unset($_SESSION['userFile']);
-} elseif (isset($_SESSION['logged-in'])) {
+} elseif ($_SESSION['logged-in'] == true) {
     /*User is viewing their own page*/
     $name = $_SESSION['name'];
     $image = $_SESSION['image'];
@@ -22,6 +26,9 @@ if(isset($_SESSION['userFile'])){
 } else {
     /*Guest User*/
     $name = "Please log in!";
+    $image = "img/blank.jpeg";
+    $reputation = '?';
+    $userType = 0;
 }
 
 
@@ -37,11 +44,12 @@ if(isset($_SESSION['userFile'])){
 <div class = "profile-flex-c">
     <div id = "lh-column">
         <div id = "profile-pic">
-            <img src="#" alt = "Profile picture"> <!--Need to set picture from DB-->
+            <img src="<?php echo $image; ?>" alt = "Profile picture" width="200px" height="200px" > <!--Need to set picture from DB-->
         </div>
         <div id = "details">
             Name: <?php echo $name ?><br/>
             My projects: <!--Need to retrieve linked projects from DB--><br/>
+            My reputation: <?php echo $reputation ?>/10<br/>
         </div>
         <!--Consider adding button for logged-in users to contact?-->
     </div>
