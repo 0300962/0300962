@@ -27,15 +27,13 @@ if ($pw != $pw2) {
     echo "Invalid email address!";
     redirect('2');
 } else {
-    /* Hashes sanitized username and connects to the DB*/
-    $hashedUN = password_hash($un, PASSWORD_DEFAULT);
+    /* Hashes sanitized password and connects to the DB*/
     $hashedPW = password_hash($pw, PASSWORD_DEFAULT);
-
     include_once 'connection.php';
     /*Checks if email address already in the database*/
-    $sql = "SELECT hashedLogin, userNo
+    $sql = "SELECT login, userNo
                 FROM LoginDetails
-                WHERE hashedLogin = {$hashedUN}";
+                WHERE login = {$un}";
     $result = mysqli_query($dbcon, $sql);
 
     if ($result) {
@@ -47,8 +45,8 @@ if ($pw != $pw2) {
             echo "Image file not JPG or JPEG";
             redirect(7);
         } else {
-            $sql = "INSERT INTO LoginDetails (hashedLogin, hashedPassword)
-                VALUES ('{$hashedUN}','{$hashedPW}')";
+            $sql = "INSERT INTO LoginDetails (login, hashedPassword)
+                VALUES ('{$un}','{$hashedPW}')";
             $result = mysqli_query($dbcon, $sql);
             if ($result) {
                 /*Retrieves user number for just-added account*/
