@@ -1,0 +1,16 @@
+/*Site colour palette =
+http://www.color-hex.com/color-palette/54871
+ #22758e (34,117,142) - Blue
+ #b63b3b (182,59,59) - Red
+ #f9c414 (249,196,20) - Yellow
+ #e3e8e6 (227,232,230) - Whitish
+ #4c4555 (76,69,85) - Dark brown
+*/
+
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}

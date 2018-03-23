@@ -28,7 +28,7 @@ if ($_SESSION['logged-in'] == true) {
             </form>
             Or Register:<br/><br/>
             <a href='register.php' type='button'>Register</a> 
-        </div>"; /*Link to register.php shows as wrong, but is fine*/
+        </div>"; /*Link to register.php shows as wrong, but is fine once embedded on page */
 }
 
 ?>
