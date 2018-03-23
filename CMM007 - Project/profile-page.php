@@ -17,7 +17,7 @@ if(isset($_SESSION['userFile'])){
     $reputation = $_SESSION['userFile']['reputation'];
     $userType = $_SESSION['userFile']['userType'];
     unset($_SESSION['userFile']);
-} elseif ($_SESSION['logged-in'] == true) {
+} elseif (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)) {
     /*User is viewing their own page*/
     $name = $_SESSION['name'];
     $image = $_SESSION['image'];
