@@ -15,7 +15,7 @@
     <div class="footer">
         <div> Brendan Campbell - 0300962<br/>
             The Robert Gordon University 2018<br/>
-            All images courtesy of www.Pexels.com - Colour scheme courtesy of www.Color-Hex.com<br/>
+            All images courtesy of <a href="https:\\www.Pexels.com">Pexels</a> - Colour scheme courtesy of <a href="http:\\www.Color-Hex.com">Color-Hex</a><br/>
         </div>
     </div>
 

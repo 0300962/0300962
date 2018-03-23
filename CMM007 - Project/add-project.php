@@ -25,13 +25,13 @@ if (session_status() === PHP_SESSION_NONE) {
                 Project name =
                 <input name="name" type="text" placeholder="Project Name"><br/><br/>
                 Project Summary (visible to all) =
-                <input name="summary" type="text" placeholder="Brief outline of what you need"><br/><br/>
-                Project Description (only visible to loged-in Users) =
-                <input name="description" type="text" placeholder="Additional details of your reuquirement"><br/><br/>
+                <textarea title="Project Summary" name="summary" rows="5" cols="50" placeholder="Brief outline of what you need"></textarea><br/><br/>
+                Project Description (only visible to logged-in Users) =
+                <textarea title ="Project Description" name="description" rows="5" cols="50" placeholder="Additional details of your requirement"></textarea><br/><br/>
                 Project Deadline =
-
+                <input title="Project Deadline" name="deadline" type="date"><br/><br/>
                 Required Outputs =
-                <input name="outputs" type="text" placeholder="Logo as .png, Website as .HTML files, etc"><br/><br/>
+                <textarea title="Outputs" name="outputs" type="text" rows="5" cols="50" placeholder="Website as .HTML files, etc"></textarea><br/><br/>
                 Project Image (.jpg or .jpeg only) =
                 <input name="image" type="file"><br/><br/>
 

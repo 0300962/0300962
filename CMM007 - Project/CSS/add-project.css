@@ -14,3 +14,6 @@ http://www.color-hex.com/color-palette/54871
     margin-left: auto;
     margin-right: auto;
 }
+#form {
+    column-count: 2;
+}
