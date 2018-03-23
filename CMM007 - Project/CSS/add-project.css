@@ -9,11 +9,31 @@ http://www.color-hex.com/color-palette/54871
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
 }
+
+#intro {
+    color: #b63b3b;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #form {
+    justify-content: space-around;
     column-count: 2;
+    margin: 10px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    color: #b63b3b;
+}
+#error{
+    background-color: #f9c414;
+    color: #4c4555 ;
+    padding: 20px;
 }

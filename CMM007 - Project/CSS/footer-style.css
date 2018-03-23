@@ -23,12 +23,12 @@ http://www.color-hex.com/color-palette/54871
     padding: 5px;
 }
 
-a:link, a:visited {
+.footer > div > a:link, a:visited {
     text-decoration: none;
-    color: #f9c414;
+    /*color: #f9c414;*/
 }
 
-a:hover, a:active{
+.footer > div > a:hover, a:active{
     text-decoration: underline;
     color: #e3e8e6;
 }

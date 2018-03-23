@@ -9,36 +9,40 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-//Have to check for login status
-if (!$_SESSION['logged-in']) {
-    echo "Error - User must be logged-in to add new projects!";
-} else {
-    /*Need to add IF to check for error status*/
-
-
-    ?>
+?>
     <html lang="en">
     <head>
         <link rel="stylesheet" href = "CSS/add-project.css" type="text/css">
     </head>
     <body>
-        <div class = "container">
-            <div id="form">
+    <div class = "container">
+        <?php //Have to check for login status
+            if (!$_SESSION['logged-in']) {
+                echo "<div id='error'>Error - User must be logged-in to add new projects!</div></div>";
+            } else {
+                /*Need to add IF to check for error status*/
+            ?>
+                <div id="intro">
+                <h3>Add a New Project!</h3>
+                <p>This is your chance to get someone's attention and their help.  Be concise, give details, and be honest about what you need and when you need it.</p>
+                </div>
+               <div id="form">
                 <form name="newProject" action="Scripts/addNewProject.php" method="post" enctype="multipart/form-data">
                     Project name =
                     <input name="name" type="text" placeholder="Project Name"><br/><br/>
                     Project Summary (visible to all) =
-                    <textarea title="Project Summary" name="summary" rows="5" cols="50" placeholder="Brief outline of what you need"></textarea><br/><br/>
+                    <textarea title="Project Summary" name="summary" rows="5" cols="60" placeholder="Brief outline of what you need"></textarea><br/><br/>
                     Project Description (only visible to logged-in Users) =
-                    <textarea title ="Project Description" name="description" rows="5" cols="50" placeholder="Additional details of your requirement"></textarea><br/><br/>
+                    <textarea title ="Project Description" name="description" rows="5" cols="60" placeholder="Additional details of your requirement"></textarea><br/><br/>
                     Project Deadline =
                     <input title="Project Deadline" name="deadline" type="date"><br/><br/>
                     Required Outputs =
-                    <textarea title="Outputs" name="outputs" rows="5" cols="50" placeholder="Website as .HTML files, etc"></textarea><br/><br/>
+                    <textarea title="Outputs" name="outputs" rows="5" cols="60" placeholder="Website as .HTML files, etc"></textarea><br/><br/>
                     Tags associated with the project =
                     <input name="tags" type="text" placeholder="Change to tag picker"><br/><br/>
                     Project Image (.jpg or .jpeg only) =
                     <input name="image" type="file"><br/><br/>
+                    <input name="submit" type="submit" value="Submit!">
                 </form>
             </div>
         </div>
