@@ -28,8 +28,8 @@ include_once 'connection.php';
     $outputs = filter_var($_POST['outputs'],FILTER_SANITIZE_STRING);
 
     /* Checks image size, moves to directory */
-    $imgfolder = "projectImages/";
-    $savedimg = $imgfolder.basename($_FILES["image"]["name"]);
+    $imgfolder = "../projectImages/".$_SESSION['userno'];
+    $savedimg = $imgfolder.basename($_FILES['image']['name']);
     if ($_FILES["image"]["size"] > 750000) {
         echo "Outsized image (>750Kb)";
         redirect(1);
@@ -41,14 +41,16 @@ include_once 'connection.php';
             redirect(2); /* Bad filename */
         }
     }
+    /* Trims the directory details from image path for future display */
+    $savedimg = ltrim($savedimg, './');
     /* Checks file extension */
     $imgext = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
     if ($imgext != 'jpg' && $imgext != 'jpeg') {
         echo "Image file not JPG or JPEG";
         redirect(3); /* Wrong file type */
     } else {
-        $sql = "INSERT INTO Projects (name, tags, description, summary, deadline, outputs, status, image)
-                VALUES ('{$name}','{$tags}', '{$description}', '{$summary}', '{$deadline}', '{$outputs}','1','{$savedimg}')";
+        $sql = "INSERT INTO Projects (name, userNo, tags, description, summary, deadline, outputs, status, image)
+                VALUES ('{$name}','{$_SESSION['userno']}','{$tags}', '{$description}', '{$summary}', '{$deadline}', '{$outputs}',1,'{$savedimg}')";
         $result = mysqli_query($dbcon, $sql);
         if ($result) {
             echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../projects.php'</script></html>";

@@ -57,10 +57,10 @@ if ($pw != $pw2) {
                 $type = $_POST['type'];
 
                 /* Checks image size, moves to directory */
-                $imgfolder = "projectImages/";
-                $savedimg = $imgfolder.basename($_FILES["image"]["name"]);
+                $imgfolder = "../projectImages/".$_SESSION['userno'];
+                $savedimg = $imgfolder.basename($_FILES['image']['name']);
                 if ($_FILES["image"]["size"] > 750000) {
-                    echo "Outsized image (>750Kb)";
+                    echo "Outsized image (>750Kb)";\
                     redirect(8);
                 } else {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $savedimg)) {
@@ -76,6 +76,8 @@ if ($pw != $pw2) {
                     echo "Invalid user type";
                     redirect(5);
                 } else {
+                    /* Trims the directory details from image path for future display */
+                    $savedimg = ltrim($savedimg, './');
                     /*Adds new user details to the system*/
                     $sql = "INSERT INTO Users (userNo, name, image, reputation, userType)
                             VALUES ('{$userNo}', '{$name}', '{$savedimg}', '5', {$type})";

@@ -80,7 +80,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 Confirm Password =
                 <input name="password2" type="password" placeholder="Password"><br/><br/>
                 Profile image (.jpg or .jpeg only) =
-                <input name="image" type="file"><br/><br/>
+                <input name="image" id="image" type="file"><br/><br/>
                 Account type =
                 <select title="Account type = " name="type">
                     <option value="1">Helper - I want to use my skills to help others</option>

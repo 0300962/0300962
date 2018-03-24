@@ -31,7 +31,20 @@ http://www.color-hex.com/color-palette/54871
     align-content: space-around;
     margin-right: 10px;
 }
+#controls > a:link, a:visited {
+    color: #e3e8e6;
+    background-color: #b63b3b;
+    margin-top: 20px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
 
+#controls > a:hover {
+    background-color: #f9c414;
+    color: #b63b3b;
+}
 #projectlist > img {
     width: 200px;
     height: 200px;
@@ -45,4 +58,11 @@ http://www.color-hex.com/color-palette/54871
 
 tr, td {
     border: 1px solid #b63b3b;
+}
+td > img {
+
+    width: 200px;
+    height: 200px;
+    background-color: #f9c414;
+}
 }
