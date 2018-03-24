@@ -25,11 +25,11 @@ if (session_status() === PHP_SESSION_NONE) {
             </form><br/>
         <?php /* Checks for a looged-in, Cause user */
             if(isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == TRUE)){
-                if ($_SESSION['type'] == 1) {
+                if ($_SESSION['type'] == 0) {
                     echo "<a href='new-project.php' type='button'>Create a New Project</a>";
-                } else {
-                    echo "<a href='projects.php' type='button'>View all Projects</a>";
                 }
+            } else {
+                echo "<a href='projects.php' type='button'>View all Projects</a>";
             }
             ?>
         </div>

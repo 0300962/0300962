@@ -27,7 +27,7 @@ if ((isset($_SESSION['logged-in'])) && ($_SESSION['logged-in'] == TRUE)) {
             <input id='login' type='submit' name='login' value='Sign in'>
         </form>
         Or Register:<br/><br/>
-        <a href='register.php' type='button'>Register</a> 
+        <a href='register.php' type='button'>Register</a>
     </div>"; /*Link to register.php shows as wrong, but is fine once embedded on page */
     }
 
