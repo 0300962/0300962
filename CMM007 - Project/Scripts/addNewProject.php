@@ -27,9 +27,10 @@ include_once 'connection.php';
     $deadline = filter_var($_POST['deadline'],FILTER_SANITIZE_STRING);
     $outputs = filter_var($_POST['outputs'],FILTER_SANITIZE_STRING);
 
-    /* Checks image size, moves to directory */
-    $imgfolder = "../projectImages/".$_SESSION['userno'];
-    $savedimg = $imgfolder.basename($_FILES['image']['name']);
+    /* Sets up save location and generates new name for image */
+    $imgfolder = "../projectImages/";
+    $savedimg = $imgfolder.time().($_FILES['image']['name']);
+    /* Checks image size */
     if ($_FILES["image"]["size"] > 750000) {
         echo "Outsized image (>750Kb)";
         redirect(1);

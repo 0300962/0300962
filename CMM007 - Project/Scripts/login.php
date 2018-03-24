@@ -24,7 +24,7 @@ if (isset($_POST['logout'])) {
 
     /*Retrieves the hashed password and User's Name from the database*/
     $sql = "SELECT L.hashedPassword as hashedPassword, U.name as name, U.userNo as userNo,
-                  U.reputation as reputation, U.userType as userType, U.image as image
+                  U.reputation as reputation, U.userType as userType, U.image as image, U.description as description
                 FROM LoginDetails L, Users U
                 WHERE login = '{$un}'
                 AND L.userNo = U.userNo";
@@ -42,6 +42,7 @@ if (isset($_POST['logout'])) {
         $_SESSION['rep'] = $row['reputation'];
         $_SESSION['type'] = $row['userType'];
         $_SESSION['image'] = $row['image'];
+        $_SESSION['desc'] = $row['description'];
 
         /*Forwards back to last page*/
         echo "<script type='text/javascript'> location = '../{$_SESSION['last_page']}'</script>";

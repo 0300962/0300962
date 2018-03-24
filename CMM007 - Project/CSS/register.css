@@ -16,6 +16,7 @@ http://www.color-hex.com/color-palette/54871
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #b63b3b;
 }
 #error_box{
     background-color: #f9c414;
@@ -30,6 +31,7 @@ http://www.color-hex.com/color-palette/54871
 }
 
 #form{
-
-
+    columns: 2;
+    margin: 10px;
+    text-align: right;
 }

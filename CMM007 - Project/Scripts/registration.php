@@ -21,6 +21,7 @@ include_once 'connection.php';
 $un = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $pw = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
 $pw2 = filter_var($_POST['password2'], FILTER_SANITIZE_STRING);
+$description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
 
 if ($pw != $pw2) {
     echo "Passwords do not match!";
@@ -56,9 +57,10 @@ if ($pw != $pw2) {
                 $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
                 $type = $_POST['type'];
 
-                /* Checks image size, moves to directory */
-                $imgfolder = "../projectImages/".$_SESSION['userno'];
-                $savedimg = $imgfolder.basename($_FILES['image']['name']);
+                /* Sets up save location and generates new name for image */
+                $imgfolder = "../projectImages/";
+                $savedimg = $imgfolder.time().($_FILES['image']['name']);
+                /* Checks image size */
                 if ($_FILES["image"]["size"] > 750000) {
                     echo "Outsized image (>750Kb)";\
                     redirect(8);
@@ -79,8 +81,8 @@ if ($pw != $pw2) {
                     /* Trims the directory details from image path for future display */
                     $savedimg = ltrim($savedimg, './');
                     /*Adds new user details to the system*/
-                    $sql = "INSERT INTO Users (userNo, name, image, reputation, userType)
-                            VALUES ('{$userNo}', '{$name}', '{$savedimg}', '5', {$type})";
+                    $sql = "INSERT INTO Users (userNo, name, image, description, reputation, userType)
+                            VALUES ('{$userNo}', '{$name}', '{$savedimg}', '{$description}', '5', {$type})";
                     $result = mysqli_query($dbcon, $sql);
 
                     if ($result) {

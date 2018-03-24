@@ -23,6 +23,7 @@ if(isset($_SESSION['userFile'])){
     $image = $_SESSION['image'];
     $reputation = $_SESSION['rep'];
     $userType = $_SESSION['type'];
+    $desc = $_SESSION['desc'];
 } else {
     /*Guest User*/
     $name = "Please log in!";
@@ -55,7 +56,7 @@ if(isset($_SESSION['userFile'])){
     </div>
 
     <div id = "details-column">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <?php echo $desc ?><br/>
     </div>
 
 </div>

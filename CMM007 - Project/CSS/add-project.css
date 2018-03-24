@@ -18,6 +18,7 @@ http://www.color-hex.com/color-palette/54871
 
 #intro {
     color: #b63b3b;
+    background-color: #e3e8e6;
     text-align: justify;
     max-width: 800px;
     margin-left: auto;
@@ -25,12 +26,11 @@ http://www.color-hex.com/color-palette/54871
 }
 
 #form {
-    justify-content: space-around;
     column-count: 2;
     margin: 10px;
-    /*margin-left: auto;
-    margin-right: auto;*/
+    text-align: right;
     color: #b63b3b;
+    background-color: #e3e8e6;
 }
 #error{
     background-color: #f9c414;

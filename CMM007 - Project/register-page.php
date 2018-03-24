@@ -81,6 +81,8 @@ if (session_status() === PHP_SESSION_NONE) {
                 <input name="password2" type="password" placeholder="Password"><br/><br/>
                 Profile image (.jpg or .jpeg only) =
                 <input name="image" id="image" type="file"><br/><br/>
+                About you =
+                <textarea title="description" name="description" rows="5" cols="60" placeholder="Tell us a little about yourself.  What do you do, why are you here?"></textarea><br/><br/>
                 Account type =
                 <select title="Account type = " name="type">
                     <option value="1">Helper - I want to use my skills to help others</option>
