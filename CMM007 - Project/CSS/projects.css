@@ -45,6 +45,13 @@ http://www.color-hex.com/color-palette/54871
     background-color: #f9c414;
     color: #b63b3b;
 }
+
+#details {
+    padding: 10px;
+}
+#projectlist {
+    flex-shrink: 0;
+}
 #projectlist > img {
     width: 200px;
     height: 200px;
@@ -64,5 +71,4 @@ td > img {
     width: 200px;
     height: 200px;
     background-color: #f9c414;
-}
 }

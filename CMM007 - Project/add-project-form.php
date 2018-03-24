@@ -41,7 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     }
                     echo "</div>";
                 }
-            }
+
         ?>
         <div id="intro">
         <h3>Add a New Project!</h3>

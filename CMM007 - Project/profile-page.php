@@ -30,6 +30,7 @@ if(isset($_SESSION['userFile'])){
     $image = "img/blank.jpeg";
     $reputation = '?';
     $userType = 0;
+    $desc = "Sorry, there's nothing to see here.";
 }
 
 
@@ -45,7 +46,7 @@ if(isset($_SESSION['userFile'])){
 <div class = "profile-flex-c">
     <div id = "lh-column">
         <div id = "profile-pic">
-            <img src="<?php echo $image; ?>" alt = "Profile picture" width="200px" height="200px" > <!--Need to set picture from DB-->
+            <img src="<?php echo $image; ?>" alt = "Profile picture" width="200px" height="200px" >
         </div>
         <div id = "details">
             Name: <?php echo $name ?><br/>

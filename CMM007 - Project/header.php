@@ -15,7 +15,7 @@
     <div class="header-flex-container">
         <div id="logo">
             <a href="index.php">
-                <img id="logo" src="img/logo.png" alt="logo">
+                <img id="logo" src="img/logo.png" alt="Labour For Change Logo">
             </a>
         </div>
 
