@@ -14,8 +14,8 @@ if (session_status() === PHP_SESSION_NONE) {
 if ((isset($_SESSION['logged-in'])) && ($_SESSION['logged-in'] == TRUE)) {
         echo "Welcome, {$_SESSION['name']}!";
         echo "<div id='login'>
-            <form name='form' action='Scripts/login.php' method='post'>
-            <input id='logout' type='submit' name='logout' value='Logout'>
+            <form name='form' action='Scripts/login.php' method='post'><br/>
+            <input id='logout' type='submit' name='logout' value='Logout'><br/>
             </form>
             </div>";
 } else {
@@ -25,9 +25,8 @@ if ((isset($_SESSION['logged-in'])) && ($_SESSION['logged-in'] == TRUE)) {
             <input type='text' name='username' placeholder='Email Address' ><br/>
             <input type='password' name='password' placeholder='Password'><br/>
             <input id='login' type='submit' name='login' value='Sign in'>
-        </form>
-        Or Register:<br/><br/>
-        <a href='register.php' type='button'>Register</a>
+        </form><br/>
+        Or Register: <a href='register.php' type='button'>Register</a>
     </div>"; /*Link to register.php shows as wrong, but is fine once embedded on page */
     }
 

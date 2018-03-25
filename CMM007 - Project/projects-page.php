@@ -21,6 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <input type="text" name="search" placeholder="Search"><br/>
                 <!-- Tag selector?-->
                 <!-- Deadline selector?-->
+                <br/>
                 <input id="go" type="submit" value="Search!">
             </form><br/>
         <?php /* Checks for a looged-in, Cause user */
@@ -28,9 +29,9 @@ if (session_status() === PHP_SESSION_NONE) {
                 if ($_SESSION['type'] == 0) {
                     echo "<a href='new-project.php' type='button'>Create a New Project</a>";
                 }
-            } else {
-                echo "<a href='projects.php' type='button'>View all Projects</a>";
             }
+            echo "<br/><br/><a href='projects.php' type='button'>View all Projects</a>";
+
             ?>
         </div>
         <div id="projectlist">

@@ -14,6 +14,13 @@ if (session_status() === PHP_SESSION_NONE) {
 function redirect($err_no) {
    echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../register.php?error={$err_no}'</script></html>";
 }
+/* Undoes the creation of login-details*/
+function undoReg(){
+    include_once 'connection.php';
+    $sql = "DELETE * FROM LoginDetails
+                        WHERE login = {$un}";
+    $result = mysqli_query($dbcon, $sql);
+}
 
 include_once 'connection.php';
 
@@ -62,13 +69,15 @@ if ($pw != $pw2) {
                 $savedimg = $imgfolder.time().($_FILES['image']['name']);
                 /* Checks image size */
                 if ($_FILES["image"]["size"] > 750000) {
-                    echo "Outsized image (>750Kb)";\
+                    echo "Outsized image (>750Kb)";
+                    undoReg();
                     redirect(8);
                 } else {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $savedimg)) {
                         echo "Image uploaded ok";
                     } else {
                         echo "Image upload fail- duplicate name?";
+                        undoReg();
                         redirect(9);
                     }
                 }
@@ -76,6 +85,7 @@ if ($pw != $pw2) {
                 /*Checks whether the UserType flag has been tampered-with*/
                 if (!in_array($type, range(0, 1, 1))) {
                     echo "Invalid user type";
+                    undoReg();
                     redirect(5);
                 } else {
                     /* Trims the directory details from image path for future display */
@@ -89,6 +99,7 @@ if ($pw != $pw2) {
                         echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../index.php'</script></html>";
                     } else {
                         echo $sql;
+                        undoReg();
                         redirect(6);
                     }
                 }

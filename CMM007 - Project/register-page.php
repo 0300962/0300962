@@ -59,6 +59,11 @@ if (session_status() === PHP_SESSION_NONE) {
 
     </div>
     <div class="container">
+        <div id="banner">
+            <img src="img/profile_banner2.jpg" alt="Register new account">
+        </div>
+    </div>
+    <div class="container">
         <div id="disclaimer">
             <h3>Please read carefully before creating an account:</h3>
             <ul>

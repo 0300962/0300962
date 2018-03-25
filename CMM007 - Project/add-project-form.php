@@ -15,6 +15,11 @@ if (session_status() === PHP_SESSION_NONE) {
         <link rel="stylesheet" href = "CSS/add-project.css" type="text/css">
     </head>
     <body>
+    <div class="container">
+        <div id="banner">
+            <img src="img/projects_banner2.jpg" alt="Create a new project">
+        </div>
+    </div>
     <div class = "container">
         <?php //Have to check for login status
             if (!$_SESSION['logged-in']) {
