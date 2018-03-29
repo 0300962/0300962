@@ -32,8 +32,8 @@ http://www.color-hex.com/color-palette/54871
 #lh-column{
     flex-direction: column;
     flex-grow: 1;
-    /*background-color: #f9c414;*/
     margin-right: 10px;
+    background-color: #e3e8e6;
 }
 #profile-pic > img{
     display: block;
@@ -44,6 +44,21 @@ http://www.color-hex.com/color-palette/54871
     margin-top: 20px;
     flex-direction: column;
     padding: 5px;
+}
+
+#details > a:link, a:visited{
+    color: #e3e8e6;
+    background-color: #b63b3b;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    margin: 10px;
+}
+
+#details > a:hover, a:active {
+    color: #b63b3b;
+    background-color: #f9c414;
 }
 
 #details-column{

@@ -13,7 +13,6 @@ include_once 'connection.php';
 
 if(isset($_REQUEST['accept'])) {
     $projectNo = filter_var($_POST['projNo'], FILTER_SANITIZE_NUMBER_INT);
-    $_SESSION['userno']
 
     $sql = "UPDATE projects
             SET helperNo =  {$_SESSION['userno']}
@@ -21,7 +20,8 @@ if(isset($_REQUEST['accept'])) {
     $result = mysqli_query($dbcon, $sql);
 
     echo "<script type='text/javascript'> location = '../project-details.php?project={$projectNo}'</script>";
-
+} else {
+    echo "Failed";
 }
 
 ?>

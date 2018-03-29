@@ -32,7 +32,7 @@
         </div>
 
     </div>
-    <div class="navbar">
+    <div id="navbar">
         <div id="abouttab" onmouseover="changer('about')"><a href="about.php">About</a></div>
         <div id="projectstab" onmouseover="changer('projects')"><a href="projects.php">Projects</a></div>
         <div id="profiletab" onmouseover="changer('profile')"><a href="profile.php">My Profile</a></div>

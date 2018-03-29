@@ -41,21 +41,20 @@ if (session_status() === PHP_SESSION_NONE) {
                             <img src="<?php echo $row['pimage']; ?>" alt = "Project picture" width="200px" height="200px" >
                         </div>
                         <div id = "details">
-                            Project Name: <?php echo $row['pname'] ?><br/>
-                            Project Creator: <?php echo $row['uname']?><br/>
-
-                            Category Tags: <?php echo $row['ptags']?><br/>
+                            Project Name: <?php echo $row['pname'] ?><br/><br/>
+                            Project Creator: <?php echo "<a href='profile.php?profile={$row['puserno']}' type='button'>{$row['uname']}</a>"?><br/><br/>
+                            Category Tags: <?php echo $row['ptags']?><br/><br/>
                             Current Helper: <?php
                                 if ($row['phelperNo'] != NULL) {
-                                    echo $row['phelperNo'];
+                                    echo "<a href='profile.php?profile={$row['phelperNo']}' type='button'>View</a><br/><br/>";
                                 } else {
-                                    echo "No helpers yet!";
+                                    echo "No helpers yet! <br/><br/>";
                                 }
 
                                 if ($_SESSION['type'] == 1) {   /* Calls script to add Helper to project */
-                                    echo "<form name='accept' method='post' action='Scripts/accept.php'>
-                                            <input id='projNo' type='hidden' value='{$number}'>
-                                            <input id='accept' type='submit' value='Accept this Project'>
+                                    echo "<form method='post' action='Scripts/accept.php'>
+                                            <input name='projNo' type='hidden' value='{$number}'>
+                                            <input name='accept' type='submit' value='Accept this Project'>
                                             </form>";
                                 }
                                 ?><br/>

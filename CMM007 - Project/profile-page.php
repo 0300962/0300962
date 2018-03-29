@@ -10,20 +10,28 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if(isset($_SESSION['userFile'])){
-    /*User has requested another user's profile page*/
-    $name = $_SESSION['userFile']['name'];
-    $image = $_SESSION['userFile']['image'];
-    $reputation = $_SESSION['userFile']['reputation'];
-    $userType = $_SESSION['userFile']['userType'];
-    unset($_SESSION['userFile']);
-} elseif (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)) {
-    /*User is viewing their own page*/
-    $name = $_SESSION['name'];
-    $image = $_SESSION['image'];
-    $reputation = $_SESSION['rep'];
-    $userType = $_SESSION['type'];
-    $desc = $_SESSION['desc'];
+if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
+    if(isset($_GET['profile'])) {
+        /*User has requested another user's profile page*/
+        include_once 'Scripts/connection.php';
+        $sql = "SELECT name, image, description, reputation, userType
+                FROM Users
+                WHERE userNo = {$_GET['profile']}";
+        $result = mysqli_query($dbcon, $sql);
+        $row = mysqli_fetch_array($result);
+        $name = $row['name'];
+        $image = $row['image'];
+        $userType = $row['userType'];
+        $reputation = $row['reputation'];
+        $desc = $row['description'];
+    } else {
+        /*User is viewing their own page*/
+        $name = $_SESSION['name'];
+        $image = $_SESSION['image'];
+        $reputation = $_SESSION['rep'];
+        $userType = $_SESSION['type'];
+        $desc = $_SESSION['desc'];
+    }
 } else {
     /*Guest User*/
     $name = "Please log in!";
