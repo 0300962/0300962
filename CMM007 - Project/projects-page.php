@@ -74,7 +74,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 if(mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_array($result)){
                         echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td><p>{$row['summary']}</p></td>";
-                        if (isset($_SESSION['logged-in']) && $_SESSION['type'] == 0) {
+                        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']) {
                             echo "<td><a href='project-details.php?project={$row['projectNo']}' type='button'>More</a></td>";
                         }
                         echo "</tr>";

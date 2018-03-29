@@ -19,7 +19,16 @@ http://www.color-hex.com/color-palette/54871
 .profile-flex-c > div {
     margin: 10px;
 }
-
+#error_box{
+    background-color: #f9c414;
+    color: #4c4555 ;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
 #lh-column{
     flex-direction: column;
     flex-grow: 1;
