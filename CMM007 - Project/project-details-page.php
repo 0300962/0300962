@@ -50,7 +50,15 @@ if (session_status() === PHP_SESSION_NONE) {
                                     echo $row['phelperNo'];
                                 } else {
                                     echo "No helpers yet!";
-                                } ?><br/>
+                                }
+
+                                if ($_SESSION['type'] == 1) {   /* Calls script to add Helper to project */
+                                    echo "<form name='accept' method='post' action='Scripts/accept.php'>
+                                            <input id='projNo' type='hidden' value='{$number}'>
+                                            <input id='accept' type='submit' value='Accept this Project'>
+                                            </form>";
+                                }
+                                ?><br/>
 
                         </div>
                     </div>
