@@ -15,7 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href = "CSS/register.css" type="text/css">
 </head>
 <body>
-    <div class = "container">
+    <div class = "container"> <!-- Error message panel -->
         <?php
             if (isset($_GET['error'])) {
                 echo "<div id='error_box'>";
