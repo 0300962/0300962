@@ -61,7 +61,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div id="projectlist">
             <?php
                 include_once 'Scripts/connection.php';
-                $sql = "SELECT name, tags, summary, deadline, image
+                $sql = "SELECT name, tags, summary, deadline, image, projectNo
                         FROM projects
                         WHERE status = 1";
                 $result = mysqli_query($dbcon, $sql);
@@ -75,7 +75,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     while($row = mysqli_fetch_array($result)){
                         echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td><p>{$row['summary']}</p></td>";
                         if (isset($_SESSION['logged-in']) && $_SESSION['type'] == 0) {
-                            echo "<td><a href='project-details.php' type='button'>More</a></td>";
+                            echo "<td><a href='project-details.php?project={$row['projectNo']}' type='button'>More</a></td>";
                         }
                         echo "</tr>";
                     }
