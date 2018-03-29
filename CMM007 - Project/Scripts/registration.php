@@ -96,6 +96,13 @@ if ($pw != $pw2) {
                     $result = mysqli_query($dbcon, $sql);
 
                     if ($result) {
+                        $_SESSION['logged-in'] = true;
+                        $_SESSION['name'] = $name;
+                        $_SESSION['userno'] = $userNo;
+                        $_SESSION['rep'] = 5;
+                        $_SESSION['type'] = $type;
+                        $_SESSION['image'] = $savedimg;
+                        $_SESSION['desc'] = $description;
                         echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../index.php'</script></html>";
                     } else {
                         echo $sql;

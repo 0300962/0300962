@@ -54,7 +54,8 @@ include_once 'connection.php';
                 VALUES ('{$name}','{$_SESSION['userno']}','{$tags}', '{$description}', '{$summary}', '{$deadline}', '{$outputs}',1,'{$savedimg}')";
         $result = mysqli_query($dbcon, $sql);
         if ($result) {
-            echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../projects.php'</script></html>";
+            $projNo = $dbcon->insert_id;
+            echo "<!DOCTYPE html><html lang='en'><head></head><body><script type='text/javascript'> location = '../project-details.php?project={$projNo}'</script></html>";
         } else {
             echo $sql;
             redirect(4); /*Failed to add new project*/

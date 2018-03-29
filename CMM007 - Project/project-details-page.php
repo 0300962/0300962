@@ -26,9 +26,11 @@ if (session_status() === PHP_SESSION_NONE) {
                     $number = 1;
                 }
                 include_once 'Scripts/connection.php';
-                $sql = "SELECT name, userNo, tags, summary, description, deadline, image, deadline, outputs
-                                    FROM projects
-                                    WHERE projectNo = {$number}";
+                $sql = "SELECT P.name as pname, P.userNo as puserno, P.tags as ptags, P.summary as psummary, P.description as pdescription,
+                              P.deadline as pdeadline, P.image as pimage, P.deadline as pdeadline, P.outputs as poutputs, P.helperNo as phelperNo, U.name as uname
+                        FROM Projects P, Users U 
+                        WHERE P.projectNo = {$number}
+                        AND P.userNo = U.userNo";
                 $result = mysqli_query($dbcon, $sql);
                 $row = mysqli_fetch_array($result);
                 ?>
@@ -36,24 +38,30 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class = "profile-flex-c">
                     <div id = "lh-column">
                         <div id = "profile-pic">
-                            <img src="<?php echo $row['image']; ?>" alt = "Project picture" width="200px" height="200px" >
+                            <img src="<?php echo $row['pimage']; ?>" alt = "Project picture" width="200px" height="200px" >
                         </div>
                         <div id = "details">
-                            Project Name: <?php echo $row['name'] ?><br/>
-                            Project Creator: <?php ?>
+                            Project Name: <?php echo $row['pname'] ?><br/>
+                            Project Creator: <?php echo $row['uname']?><br/>
 
-                            Category Tags: <?php echo $row['tags']?><br/>
+                            Category Tags: <?php echo $row['ptags']?><br/>
+                            Current Helper: <?php
+                                if ($row['phelperNo'] != NULL) {
+                                    echo $row['phelperNo'];
+                                } else {
+                                    echo "No helpers yet!";
+                                } ?><br/>
+
                         </div>
-
                     </div>
 
                     <div id = "details-column">
-                        <h2><?php echo $row['name']?></h2>
-                        <p><?php echo $row['summary']?></p>
-                        <p><?php echo $row['description']?></p>
+                        <h2><?php echo $row['pname']?></h2>
+                        <p><?php echo $row['psummary']?></p>
+                        <p><?php echo $row['pdescription']?></p>
                         <h2>Required Outputs</h2>
-                        <p><?php echo $row['outputs']?></p>
-                        <h3>Deadline - <?php echo $row['deadline']?></h3>
+                        <p><?php echo $row['poutputs']?></p>
+                        <h3>Deadline - <?php echo $row['pdeadline']?></h3>
                     </div>
 
                 </div>
