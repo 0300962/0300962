@@ -65,13 +65,22 @@ if (session_status() === PHP_SESSION_NONE) {
                         FROM projects
                         WHERE status = 1";
                 $result = mysqli_query($dbcon, $sql);
-                echo "<table><tr><th></th><th>Project</th><th>Project Summary</th></tr>";
+                echo "<table><tr><th></th><th>Project</th><th>Project Summary</th>";
+                if (isset($_SESSION['logged-in']) && $_SESSION['type'] == 0) {
+                    echo "<th>See More</th>";
+                }
+                echo "</tr>";
+
                 if(mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_array($result)){
-                        echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td>{$row['summary']}</td></tr>";
-                    };
+                        echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td><p>{$row['summary']}</p></td>";
+                        if (isset($_SESSION['logged-in']) && $_SESSION['type'] == 0) {
+                            echo "<td><a href='project-details.php' type='button'>More</a></td>";
+                        }
+                        echo "</tr>";
+                    }
                 } else {
-                    echo "<tr><td colspan='3'>No projects found!</td></tr>";
+                    echo "<tr><th colspan='4'>No projects found!</th></tr>";
                 }
                 echo "</table>";
             ?>
