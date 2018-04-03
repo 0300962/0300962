@@ -14,6 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <html lang="en">
 <head>
     <link rel="stylesheet" href = "CSS/header-style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 </head>
 <body>
     <div class="header-flex-container">

@@ -15,7 +15,8 @@
     <div class="footer">
         <div> Brendan Campbell - <a href="mailto:0300962@rgu.ac.uk?Subject=Labour4Change%20Website" target="_top">0300962</a><br/>
             The Robert Gordon University 2018<br/>
-            All images courtesy of <a href="https:\\www.Pexels.com">Pexels</a> - Colour scheme courtesy of <a href="http:\\www.Color-Hex.com">Color-Hex</a><br/>
+            All images courtesy of <a href="https:\\www.Pexels.com">Pexels</a> - Colour scheme courtesy of <a href="http:\\www.Color-Hex.com">Color-Hex</a>
+            - Font courtesy of <a href="https://fonts.google.com/">Google Nunito Sans</a><br/>
         </div>
     </div>
 
