@@ -24,6 +24,7 @@ if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
         $userType = $row['userType'];
         $reputation = $row['reputation'];
         $desc = $row['description'];
+        $profileNo = $_GET['profile'];
     } else {
         /*User is viewing their own page*/
         $name = $_SESSION['name'];
@@ -31,6 +32,7 @@ if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
         $reputation = $_SESSION['rep'];
         $userType = $_SESSION['type'];
         $desc = $_SESSION['desc'];
+        $profileNo = $_SESSION['userno'];
     }
 } else {
     /*Guest User*/
@@ -58,10 +60,39 @@ if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
         </div>
         <div id = "details">
             Name: <?php echo $name ?><br/>
-            My projects: <!--Need to retrieve linked projects from DB--><br/>
+            Type: <?php if ($userType == 1) {
+                echo "Helper";
+            } else {
+                echo "Cause";
+            }?><br/>
             My reputation: <?php echo $reputation ?>/10<br/>
+            My projects: <!--Need to retrieve linked projects from DB--><br/><br/>
+            <?php
+            if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
+                include_once 'Scripts/connection.php';
+                if ($userType == 1) { /* Gets project No's that the Helper user has helped with */
+                    $sql = "SELECT projectNo, name FROM Projects
+                        WHERE helperNo = '{$profileNo}'";
+                    //Optional - include completed projects?
+                } else { /* Gets project No's that the Cause user has created */
+                    $sql = "SELECT projectNo, name FROM Projects
+                        WHERE userNo = '{$profileNo}'";
+                }
+                $result = mysqli_query($dbcon, $sql);
+                if ($result){
+                    echo "<div id='projectList'>";
+                    while($row = mysqli_fetch_array($result)){
+                        echo "<a href='project-details.php?project={$row['projectNo']}' type='button'>{$row['name']}</a><br/>";
+                    }
+                    echo "</div>";
+                } else {
+                    echo "No projects yet!";
+                }
+            }
+            ?>
         </div>
         <!--Consider adding button for logged-in users to contact?-->
+
     </div>
 
     <div id = "details-column">

@@ -70,6 +70,8 @@ td > a:hover {
 #projectlist {
     flex-shrink: 0;
     max-width: 800px;
+    overflow-y: auto;
+    height: 500px;
 }
 
 #projectlist > table {

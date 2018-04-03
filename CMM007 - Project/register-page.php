@@ -71,6 +71,8 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li>This site is not liable for any data loss that may occur as a result of using it.</li>
                 <li>Login details are stored with a robust hash algorithm, however it is strongly recommended to not reuse passwords on other services.</li>
                 <li>This site may use cookies as part of the login system.</li>
+                <li>Labour For Change is a non-political entity.</li>
+                <li>Labour For Change does not perform any vetting or authentication of users.  This system was developed as an academic exercise.</li>
             </ul>
         </div>
 
