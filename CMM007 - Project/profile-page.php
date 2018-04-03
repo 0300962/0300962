@@ -56,7 +56,9 @@ if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
 <div class = "profile-flex-c">
     <div id = "lh-column">
         <div id = "profile-pic">
-            <img src="<?php echo $image; ?>" alt = "Profile picture" width="200px" height="200px" >
+            <a href="<?php echo $image; ?>">
+                <img src="<?php echo $image; ?>" alt = "Profile picture" width="200px" height="200px" >
+            </a>
         </div>
         <div id = "details">
             Name: <?php echo $name ?><br/>

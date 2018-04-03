@@ -38,7 +38,9 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class = "profile-flex-c">
                     <div id = "lh-column">
                         <div id = "profile-pic">
-                            <img src="<?php echo $row['pimage']; ?>" alt = "Project picture" width="200px" height="200px" >
+                            <a href="<?php echo $row['pimage']; ?>">
+                                <img src="<?php echo $row['pimage']; ?>" alt = "Project picture" width="200px" height="200px" >
+                            </a>
                         </div>
                         <div id = "details">
                             Project Name: <?php echo $row['pname'] ?><br/><br/>
@@ -63,10 +65,10 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
 
                     <div id = "details-column">
-                        <h2><?php echo $row['pname']?></h2>
+                        <h3><?php echo $row['pname']?></h3>
                         <p><?php echo $row['psummary']?></p>
                         <p><?php echo $row['pdescription']?></p>
-                        <h2>Required Outputs</h2>
+                        <h3>Required Outputs</h3>
                         <p><?php echo $row['poutputs']?></p>
                         <h3>Deadline - <?php echo $row['pdeadline']?></h3>
                     </div>

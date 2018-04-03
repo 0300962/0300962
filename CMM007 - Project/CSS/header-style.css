@@ -29,11 +29,22 @@ body{
     padding-bottom: 5px;
     padding-top: 5px;
     padding-right: 5px;
+    text-decoration: none;
 }
 
 #login > a:hover, a:active {
     color: #b63b3b;
     background-color: #f9c414;
+}
+input[type=button], input[type=submit] {
+    background-color: #b63b3b;
+    color: #e3e8e6;
+    padding: 5px;
+    border: none;
+}
+input[type=submit]:hover {
+    background-color: #f9c414;
+    color: #b63b3b;
 }
 
 #navbar {
@@ -70,6 +81,7 @@ body{
     padding-bottom: 12px;
     padding-top: 12px;
     padding-right: 20px;
+    text-decoration: none;
 }
 #navbar > div > a:hover, a:active {
     color: #b63b3b;

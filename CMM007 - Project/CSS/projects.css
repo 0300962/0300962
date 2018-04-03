@@ -44,6 +44,7 @@ http://www.color-hex.com/color-palette/54871
     padding-bottom: 5px;
     padding-top: 5px;
     padding-right: 5px;
+    text-decoration: none;
 }
 
 #controls > a:hover {
@@ -59,6 +60,7 @@ td > a:link, a:visited {
     padding-bottom: 5px;
     padding-top: 5px;
     padding-right: 5px;
+    text-decoration: none;
 }
 
 td > a:hover {
@@ -66,12 +68,24 @@ td > a:hover {
     color: #b63b3b;
 }
 
-
 #projectlist {
     flex-shrink: 0;
-    max-width: 800px;
+    max-width: 780px;
     overflow-y: auto;
     height: 500px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #e3e8e6;
+    border: 1px solid #b63b3b;
+}
+::-webkit-scrollbar-thumb{
+     background: #22758e;
+ }
+::-webkit-scrollbar-thumb:hover {
+    background: #4c4555;
 }
 
 #projectlist > table {
@@ -83,6 +97,7 @@ tr, td {
     border: 1px solid #b63b3b;
     text-align: justify;
     padding: 10px;
+    color: #b63b3b;
 }
 td > img {
     width: 150px;

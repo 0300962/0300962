@@ -49,26 +49,27 @@ if (session_status() === PHP_SESSION_NONE) {
         ?>
         <div id="intro">
         <h3>Add a New Project!</h3>
-        <p>This is your chance to get someone's attention and their help.  Be concise, give details, and be honest about what you need and when you need it.</p>
+        <p>This is your chance to get someone's attention and their help.  Be concise, give details, and be honest about what you need and when you need it.
+            Please remember that Labour For Change does not verify User identities; if you suspect misuse of the system please contact the System Administrator.</p>
         </div>
     </div>
     <div class="container">
         <div id="form">
             <form name="newProject" action="Scripts/addNewProject.php" method="post" enctype="multipart/form-data">
-                Project name<br/>
-                <input name="name" type="text" placeholder="Project Name"><br/><br/>
-                Project Summary (visible to all)<br/>
-                <textarea title="Project Summary" name="summary" rows="5" cols="60" placeholder="Brief outline of what you need"></textarea><br/><br/>
-                Project Description (only visible to logged-in Users)<br/>
-                <textarea title ="Project Description" name="description" rows="5" cols="60" placeholder="Additional details of your requirement"></textarea><br/><br/>
-                Project Deadline<br/>
-                <input title="Project Deadline" name="deadline" type="date"><br/><br/>
-                Required Outputs<br/>
-                <textarea title="Outputs" name="outputs" rows="5" cols="60" placeholder="Website as .HTML files, etc"></textarea><br/><br/>
-                Tags associated with the project<br/>
-                <input name="tags" type="text" placeholder="Change to tag picker"><br/><br/>
-                Project Image (.jpg or .jpeg only)<br/>
-                <input name="image" type="file"><br/><br/>
+                <label for="name">Project name</label>
+                <input name="name" type="text" placeholder="Project Name (30 characters)" maxlength="30" required><br/><br/>
+                <label for="summary">Project Summary (visible to all)</label>
+                <textarea title="Project Summary" name="summary" rows="5" cols="60" maxlength="500" placeholder="Brief outline of what you need (max 500 characters)" required></textarea><br/><br/>
+                <label for="description">Project Description (only visible to logged-in Users)</label>
+                <textarea title ="Project Description" name="description" rows="5" cols="60" maxlength="500" placeholder="Additional details of your requirement (max 500 characters)" required></textarea><br/><br/>
+                <label for="deadline">Project Deadline</label>
+                <input title="Project Deadline" name="deadline" type="date" required><br/><br/>
+                <label for="outputs">Required Outputs</label>
+                <textarea title="Outputs" name="outputs" rows="5" cols="60" maxlength="500" placeholder="Website as .HTML files, etc (max 500 characters)" required></textarea><br/><br/>
+                <label for="tags">Tags associated with the project</label>
+                <input name="tags" type="text" placeholder="Change to tag picker" maxlength="30" required><br/><br/>
+                <label for="image">Project Image (.jpg or .jpeg only, <750KB)</label>
+                <input name="image" type="file" required><br/><br/>
                 <input name="submit" type="submit" value="Submit!">
             </form>
         </div>

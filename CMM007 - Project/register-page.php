@@ -78,20 +78,20 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <div id="form">
             <form name="register" action="Scripts/registration.php" method = "post" enctype="multipart/form-data">
-                Name =
-                <input name="name" type = "text" placeholder="Your Name"><br/><br/>
-                Email address =
-                <input name="email" type="email" placeholder="me@somedomain.com"><br/><br/>
-                Password =
-                <input name="password1" type="password" placeholder="Password"><br/><br/>
-                Confirm Password =
-                <input name="password2" type="password" placeholder="Password"><br/><br/>
-                Profile image (.jpg or .jpeg only) =
-                <input name="image" id="image" type="file"><br/><br/>
-                About you =
-                <textarea title="description" name="description" rows="5" cols="60" placeholder="Tell us a little about yourself.  What do you do, why are you here?"></textarea><br/><br/>
-                Account type =
-                <select title="Account type = " name="type">
+                <label for="name">Your Name</label>
+                <input name="name" type = "text" maxlength="30" placeholder="Your Name" required><br/><br/>
+                <label for="email">Email address</label>
+                <input name="email" type="email" placeholder="me@somedomain.com" required><br/><br/>
+                <label for="password1">Password</label>
+                <input name="password1" type="password" placeholder="Password" required><br/><br/>
+                <label for="password2">Confirm Password</label>
+                <input name="password2" type="password" placeholder="Password" required><br/><br/>
+                <label for="image">Profile image (.jpg or .jpeg only, <750KB)</label>
+                <input name="image" id="image" type="file" required><br/><br/>
+                <label for="description">About you</label>
+                <textarea title="description" name="description" rows="5" cols="60" maxlength="500" placeholder="Tell us a little about yourself.  What do you do, why are you here? (max 500 characters)" required></textarea><br/><br/>
+                <label for="type">Account type</label>
+                <select title="Account type = " name="type" required>
                     <option value="1">Helper - I want to use my skills to help others</option>
                     <option value="0">Cause - I am a good cause in need of some assistance</option>
                 </select><br/><br/>

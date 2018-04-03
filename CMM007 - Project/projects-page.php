@@ -66,7 +66,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         WHERE status = 1";
                 $result = mysqli_query($dbcon, $sql);
                 echo "<table><tr><th></th><th>Project</th><th>Project Summary</th>";
-                if (isset($_SESSION['logged-in']) && $_SESSION['type'] == 0) {
+                if (isset($_SESSION['logged-in'])) {
                     echo "<th>See More</th>";
                 }
                 echo "</tr>";
