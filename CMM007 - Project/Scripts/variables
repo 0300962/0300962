@@ -7,6 +7,7 @@ $_SESSION['userno'] = User ID number
 $_SESSION['last_page'] = last page User was on
 $_SESSION['userFile'] = No, name, image, rep & type
 $_SESSION['desc'] = User description
+$_COOKIE[''accepted] = User accepted cookies on the site
 
 $un = Input, sanitized username
 $hashedUN = hashed $un

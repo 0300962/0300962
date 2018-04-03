@@ -47,6 +47,14 @@ input[type=submit]:hover {
     color: #b63b3b;
 }
 
+#cookiemonster {
+    background-color: #f9c414;
+    color: #4c4555 ;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #navbar {
     display: flex;
     flex-direction: row;
@@ -87,9 +95,6 @@ input[type=submit]:hover {
     color: #b63b3b;
 }
 
-#logo {
-
-}
 
 #colourtest{
     flex-direction: column;

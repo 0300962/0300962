@@ -65,7 +65,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
 
                     <div id = "details-column">
-                        <h3><?php echo $row['pname']?></h3>
+                        <h2><?php echo $row['pname']?></h2>
                         <p><?php echo $row['psummary']?></p>
                         <p><?php echo $row['pdescription']?></p>
                         <h3>Required Outputs</h3>

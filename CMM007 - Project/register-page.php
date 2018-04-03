@@ -50,6 +50,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     case 10:
                         echo "Incorrect Username or Password; please check and try again.";
                         break;
+                    case 11:
+                        echo "Error: Cookies are required to log into this website. Please accept and try again.";
+                        break;
                     default:
                         echo "Unknown error: Please contact system administrator.";
                 }

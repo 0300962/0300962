@@ -4,7 +4,11 @@
  * User: 0300962
  * Date: 14/03/2018
  * Time: 17:08
- */?>
+ */
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +17,14 @@
 </head>
 <body>
     <div class="header-flex-container">
+        <?php
+            if (!isset($_COOKIE["accepted"])) {
+                echo "<div id='cookiemonster'>This site uses cookies to help us remember who you are.  Please click here to accept and close this banner: ";
+                echo "<form name='cook' action='Scripts/cookie.php?accept=y' method='post'> ";
+                echo "<input id='accept' type='submit' name='accept' value='Accept'></form>";
+                echo "</div><br/></div><div class='header-flex-container'>";
+            }
+        ?>
         <div id="logo">
             <a href="index.php">
                 <img id="logo" src="img/logo.png" alt="Labour For Change Logo">
@@ -39,10 +51,6 @@
     </div>
 
     </div>
-
-
-
-
 
 </body>
 </html>

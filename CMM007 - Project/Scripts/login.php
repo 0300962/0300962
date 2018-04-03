@@ -16,6 +16,12 @@ if (isset($_POST['logout'])) {
     session_destroy();
     echo "<script type='text/javascript'> location = '../index.php'</script>";
 } else if(isset($_REQUEST['login'])) {
+    if (!isset($_COOKIE["accepted"])) {
+        /* User hasn't accepted cookies into their life */
+        echo "<script type='text/javascript'> location = '../register.php?error=11'</script>";
+        exit();
+    }
+
     /* Sanitizes user inputs*/
     $un = filter_var($_POST['username'], FILTER_SANITIZE_EMAIL);
     $pw = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
