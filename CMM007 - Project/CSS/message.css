@@ -17,10 +17,12 @@ http://www.color-hex.com/color-palette/54871
     margin-right: auto;
 }
 .threadContainer {
+    display: none;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
     flex-direction: column-reverse;
+
 }
 .threadTitle {
     height: 20px;
@@ -52,7 +54,7 @@ http://www.color-hex.com/color-palette/54871
 .lhs {
     background-color: #22758e;
     color: #e3e8e6;
-    max-width: 400px;
+    width: 400px;
     text-align: justify;
     padding: 10px;
     float: left;
@@ -62,7 +64,7 @@ http://www.color-hex.com/color-palette/54871
 .rhs {
     background-color: #b63b3b;
     color: #f9c414;
-    max-width: 400px;
+    width: 400px;
     text-align: justify;
     padding: 10px;
     float: right;
