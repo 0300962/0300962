@@ -42,7 +42,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         $projects = array();
         while ($row = mysqli_fetch_array($result)) { /* Creates navigation button for each project thread */
-            echo "<div class='threadTitle'><button id='button{$row['projectNo']}' class='msgtab' onclick='changemsg(event, {$row['projectNo']})'></button>{$row['projectNo']}</div>";
+            echo "<div class='threadTitle'><div id='button{$row['projectNo']}' class='msgtab' onclick='changemsg(event, {$row['projectNo']})'>{$row['projectNo']}</div></div>";
             $projects[] = $row['projectNo'];
         }
         echo "</div><div class = 'container'>";

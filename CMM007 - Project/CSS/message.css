@@ -38,7 +38,8 @@ http://www.color-hex.com/color-palette/54871
 }
 .threadTitle:hover{
     background-color: #f9c414;
-}
+    color: #b63b3b;
+}/*
 .threadTitle > a:link, a:visited {
     color: #e3e8e6;
     padding-left: 40px;
@@ -50,7 +51,7 @@ http://www.color-hex.com/color-palette/54871
 .threadTitle > a:hover, a:active {
     color: #b63b3b;
 }
-
+*/
 .lhs {
     background-color: #22758e;
     color: #e3e8e6;
