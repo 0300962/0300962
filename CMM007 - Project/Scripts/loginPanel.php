@@ -16,7 +16,8 @@ if ((isset($_SESSION['logged-in'])) && ($_SESSION['logged-in'] == TRUE)) {
         echo "<div id='login'>
             <form name='form' action='Scripts/login.php' method='post'><br/>
             <input id='logout' type='submit' name='logout' value='Logout'><br/>
-            </form>
+            </form><br/>
+            <a href='messages.php' type='button'>Messages</a>
             </div>";
 } else {
     echo "<div id='login'>

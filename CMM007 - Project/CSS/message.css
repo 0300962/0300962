@@ -10,16 +10,17 @@ http://www.color-hex.com/color-palette/54871
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     flex-wrap: wrap;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 .threadContainer {
-    max-width: 1000px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    flex-direction: column-reverse;
 }
 .threadTitle {
     height: 20px;
@@ -54,7 +55,8 @@ http://www.color-hex.com/color-palette/54871
     max-width: 400px;
     text-align: justify;
     padding: 10px;
-    flex-direction: row;
+    float: left;
+    margin: 10px;
 }
 
 .rhs {
@@ -63,5 +65,6 @@ http://www.color-hex.com/color-palette/54871
     max-width: 400px;
     text-align: justify;
     padding: 10px;
-    flex-direction: row-reverse;
+    float: right;
+    margin: 10px;
 }
