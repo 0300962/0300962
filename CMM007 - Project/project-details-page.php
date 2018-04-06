@@ -27,7 +27,8 @@ if (session_status() === PHP_SESSION_NONE) {
                 }
                 include_once 'Scripts/connection.php';
                 $sql = "SELECT P.name as pname, P.userNo as puserno, P.tags as ptags, P.summary as psummary, P.description as pdescription,
-                              P.deadline as pdeadline, P.image as pimage, P.deadline as pdeadline, P.outputs as poutputs, P.helperNo as phelperNo, U.name as uname
+                              P.deadline as pdeadline, P.image as pimage, P.deadline as pdeadline, P.outputs as poutputs,
+                              P.helperNo as phelperNo, P.status as status, U.name as uname
                         FROM Projects P, Users U 
                         WHERE P.projectNo = {$number}
                         AND P.userNo = U.userNo";
@@ -44,19 +45,39 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                         <div id = "details">
                             Project Name: <?php echo $row['pname'] ?><br/><br/>
+                            Project Status: <?php if ($row['status'] == 1) {echo "Active";} else {echo "Closed";} ?><br/><br/>
                             Project Creator: <?php echo "<a href='profile.php?profile={$row['puserno']}' type='button'>{$row['uname']}</a>"?><br/><br/>
                             Category Tags: <?php echo $row['ptags']?><br/><br/>
                             Current Helper: <?php
-                                if ($row['phelperNo'] != NULL) {
+                                if ($row['phelperNo'] != NULL) { /* Project already has a helper */
                                     echo "<a href='profile.php?profile={$row['phelperNo']}' type='button'>View</a><br/><br/>";
+                                    if (($_SESSION['type'] == 1) && ($row['phelperNo'] == $_SESSION['userno'])) {
+                                        /* User is the assigned helper for a project */
+                                        echo "<form method='post' action='Scripts/accept.php'>
+                                            <input name='projNo' type='hidden' value='{$number}'>
+                                            <input name='withdraw' type='submit' value='Withdraw from Project'>
+                                            </form>";
+                                    }
                                 } else {
                                     echo "No helpers yet! <br/><br/>";
-                                }
-
-                                if ($_SESSION['type'] == 1) {   /* Calls script to add Helper to project */
-                                    echo "<form method='post' action='Scripts/accept.php'>
+                                    if ($_SESSION['type'] == 1) {   /* Calls script to add Helper to project */
+                                        echo "<form method='post' action='Scripts/accept.php'>
                                             <input name='projNo' type='hidden' value='{$number}'>
                                             <input name='accept' type='submit' value='Accept this Project'>
+                                            </form>";
+                                    }
+                                }
+
+                                if (($_SESSION['type'] == 0) && ($row['puserno'] == $_SESSION['userno'])) {
+                                    /* User is the project creator */
+                                    echo "<form method='post' action='Scripts/accept.php'>
+                                            <input name='projNo' type='hidden' value='{$number}'>
+                                            <input name='close' type='submit' value='Mark Project as Closed'>
+                                            </form><br/>";
+
+                                    echo "<form method='post' action='Scripts/accept.php'>
+                                            <input name='projNo' type='hidden' value='{$number}'>
+                                            <input name='cancel' type='submit' value='Cancel this Project'>
                                             </form>";
                                 }
                                 ?><br/>
