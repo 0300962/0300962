@@ -1,0 +1,67 @@
+/*Site colour palette =
+http://www.color-hex.com/color-palette/54871
+ #22758e (34,117,142) - Blue
+ #b63b3b (182,59,59) - Red
+ #f9c414 (249,196,20) - Yellow
+ #e3e8e6 (227,232,230) - Whitish
+ #4c4555 (76,69,85) - Dark brown
+
+ */
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.threadContainer {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.threadTitle {
+    height: 20px;
+    width: 50px;
+    margin: 10px;
+    text-align: center;
+    background-color: #b63b3b;
+    color: #e3e8e6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #f9c414;
+    border-radius: 25px 0 0 0;
+}
+.threadTitle:hover{
+    background-color: #f9c414;
+}
+.threadTitle > a:link, a:visited {
+    color: #e3e8e6;
+    padding-left: 40px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+.threadTitle > a:hover, a:active {
+    color: #b63b3b;
+}
+
+.lhs {
+    background-color: #22758e;
+    color: #e3e8e6;
+    max-width: 400px;
+    text-align: justify;
+    padding: 10px;
+    flex-direction: row;
+}
+
+.rhs {
+    background-color: #b63b3b;
+    color: #f9c414;
+    max-width: 400px;
+    text-align: justify;
+    padding: 10px;
+    flex-direction: row-reverse;
+}

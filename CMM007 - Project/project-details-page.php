@@ -56,7 +56,9 @@ if (session_status() === PHP_SESSION_NONE) {
                                         echo "<form method='post' action='Scripts/accept.php'>
                                             <input name='projNo' type='hidden' value='{$number}'>
                                             <input name='withdraw' type='submit' value='Withdraw from Project'>
-                                            </form>";
+                                            </form><br/>";
+                                        /* Allows project helper to contact project owner*/
+                                        echo "<a href='messages.php?project={$number}' type='button'>Message Project Creator</a><br/>";
                                     }
                                 } else {
                                     echo "No helpers yet! <br/><br/>";
