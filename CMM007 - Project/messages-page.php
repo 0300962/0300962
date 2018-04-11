@@ -46,7 +46,9 @@ if (session_status() === PHP_SESSION_NONE) {
             $projects[] = $row['projectNo'];
         }
         echo "</div><div class = 'container'>";
-
+        if (count($projects) == 0) {
+            echo "<br/><div class='error_box'>You have no messages!</div><br/>";
+        }
         foreach ($projects as $no => $pno) {
             $sql = "SELECT * FROM Messages 
                 WHERE projectNo = {$pno}
@@ -89,7 +91,6 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
     }  else {
-        echo "<div id='error_box'>Error - User must be logged-in to use messaging!<br/>";
-        echo "<a href='register.php' type='button'>Back</a><br/></div></div>";
+        echo "<div class='error_box'>Error - User must be logged-in to use messaging!<br/></div></div>";
     }
     ?>
