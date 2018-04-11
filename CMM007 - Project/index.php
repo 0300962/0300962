@@ -15,17 +15,17 @@ $_SESSION['last_page'] = 'index.php';
 
 </head>
 <body>
-    <div id = "Header">
-        <?php include 'header.php';?>
-    </div>
+<div id = "Header">
+    <?php include 'header.php';?>
+</div>
 
-    <div id="Body">
-        <?php include 'front-page.php';?>
-    </div>
+<div id="Body">
+    <?php include 'front-page.php';?>
+</div>
 
-    <div id = "Footer">
-        <?php include 'footer.php';?>
-    </div>
+<div id = "Footer">
+    <?php include 'footer.php';?>
+</div>
 
 
 </body>
