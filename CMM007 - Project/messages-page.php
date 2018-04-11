@@ -52,11 +52,14 @@ if (session_status() === PHP_SESSION_NONE) {
                 WHERE projectNo = {$pno}
                 AND (fromUserNo = {$_SESSION['userno']}
                 OR toUserNo = {$_SESSION['userno']} )
-                ORDER BY projectNo ASC, msgDate DESC";
+                ORDER BY projectNo ASC, msgDate DESC, messageNo DESC";
             $result = mysqli_query($dbcon, $sql);
 
             $tabNo = 0;
             echo "<div class='threadContainer' id='{$pno}'>";
+            echo "<form name='message{$pno}' action='Scripts/messaging.php?project={$pno}' method='post'>";
+            echo "<textarea title='message' name='message' rows='5' cols='60' maxlength='500'></textarea><br/>";
+            echo "<input name='submit' type='submit' value='Send!'></form><br/>";
             echo "<div class='messages'>";
             while ($row = mysqli_fetch_array($result)) {
                 $tabNo = $row['projectNo'];
