@@ -46,10 +46,10 @@ if (session_status() === PHP_SESSION_NONE) {
             $projects[] = $row['projectNo'];
         }
         echo "</div><div class = 'container'>";
-        if (count($projects) == 0) {
+        if (count($projects) == 0) {  /* Placeholder for no messages found */
             echo "<br/><div class='error_box'>You have no messages!</div><br/>";
         }
-        foreach ($projects as $no => $pno) {
+        foreach ($projects as $no => $pno) {  /* Populates message threads with messages, newest at the top. */
             $sql = "SELECT * FROM Messages 
                 WHERE projectNo = {$pno}
                 AND (fromUserNo = {$_SESSION['userno']}
