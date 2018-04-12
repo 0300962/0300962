@@ -19,9 +19,21 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+input[type=button], input[type=submit] {
+    background-color: #b63b3b;
+    color: #e3e8e6;
+    padding: 5px;
+    border: none;
+    font-size: inherit;
+}
+input[type=submit]:hover {
+    background-color: #f9c414;
+    color: #b63b3b;
+}
 #login{
     max-width: 200px;
     flex-direction: row;
+    color: #b63b3b;
 }
 #login > a:link, a:visited{
     color: #e3e8e6;
@@ -37,17 +49,7 @@ body{
     color: #b63b3b;
     background-color: #f9c414;
 }
-input[type=button], input[type=submit] {
-    background-color: #b63b3b;
-    color: #e3e8e6;
-    padding: 5px;
-    border: none;
-    font-size: inherit;
-}
-input[type=submit]:hover {
-    background-color: #f9c414;
-    color: #b63b3b;
-}
+
 
 #cookiemonster {
     background-color: #f9c414;

@@ -34,7 +34,7 @@ http://www.color-hex.com/color-palette/54871
     flex-grow: 1;
     margin-right: 10px;
     background-color: #e3e8e6;
-    max-width: 200px;
+    max-width: 240px;
 }
 #projectList {
     flex-direction: column;
