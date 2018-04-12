@@ -76,9 +76,12 @@ if(isset($_REQUEST['accept'])) {
     $result = mysqli_query($dbcon, $sql);
     $row = mysqli_fetch_array($result);
     $helper = $row['helperNo'];
+    if ($helper == NULL){
+        $helper = 0; /* Helpers will only see close messages if they're still attached to the project  */
+    }
     $date = getdate();
     $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
-    /* Sends a message to the project owner that the owner has closed the project */
+    /* Sends a message to the project helper (if present) that the owner has closed the project */
     $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
             VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$helper}', '{$msgDate}', 'Owner has marked this project as completed')";
     $result = mysqli_query($dbcon, $sql);

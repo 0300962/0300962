@@ -35,19 +35,20 @@ if (session_status() === PHP_SESSION_NONE) {
     if(isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == TRUE)){
         include_once 'Scripts/connection.php';
 
-        $sql = "SELECT DISTINCT projectNo FROM Messages 
-                WHERE fromUserNo = {$_SESSION['userno']}
-                OR toUserNo = {$_SESSION['userno']}";
+        $sql = "SELECT DISTINCT P.projectNo as projectNo, P.name as name FROM Messages M, Projects P 
+                WHERE M.projectNo = P.projectNo
+                AND (fromUserNo = {$_SESSION['userno']}
+                OR toUserNo = {$_SESSION['userno']})";
         $result = mysqli_query($dbcon, $sql);
 
         $projects = array();
         while ($row = mysqli_fetch_array($result)) { /* Creates navigation button for each project thread */
-            echo "<div class='threadTitle'><div id='button{$row['projectNo']}' class='msgtab' onclick='changemsg(event, {$row['projectNo']})'>{$row['projectNo']}</div></div>";
+            echo "<div class='threadTitle'><div id='button{$row['projectNo']}' class='msgtab' onclick='changemsg(event, {$row['projectNo']})'>{$row['name']}</div></div>";
             $projects[] = $row['projectNo'];
         }
         echo "</div><div class = 'container'>";
         if (count($projects) == 0) {  /* Placeholder for no messages found */
-            echo "<br/><div class='error_box'>You have no messages!</div><br/>";
+            echo "<br/><div class='error_box'>You have no messages!  Users must be associated with a project in order to send messages.</div><br/>";
         }
         foreach ($projects as $no => $pno) {  /* Populates message threads with messages, newest at the top. */
             $sql = "SELECT * FROM Messages 
@@ -84,10 +85,12 @@ if (session_status() === PHP_SESSION_NONE) {
                         document.getElementById('button{$_GET['project']}').click();
                  </script>";
         } else {
-            /* Clicks the first tab in the list by default*/
-            echo "<script>
+            if (count($projects) != 0) {
+                /* Clicks the first tab in the list by default, if there are messages */
+                echo "<script>
                         document.getElementById('button{$projects[0]}').click();
                  </script>";
+            }
         }
 
     }  else {

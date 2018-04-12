@@ -18,15 +18,35 @@ http://www.color-hex.com/color-palette/54871
 }
 .threadContainer {
     display: none;
-    max-width: 500px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     flex-direction: column-reverse;
-
+    overflow-y: auto;
+    height: 500px;
 }
+.threadContainer > form {
+    margin-left: 130px;
+    margin-right: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #e3e8e6;
+    border: 1px solid #b63b3b;
+}
+::-webkit-scrollbar-thumb{
+    background: #22758e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #4c4555;
+}
+
 .threadTitle {
     height: 20px;
-    width: 50px;
+    width: 200px;
     margin: 10px;
     text-align: center;
     background-color: #b63b3b;
@@ -39,19 +59,8 @@ http://www.color-hex.com/color-palette/54871
 .threadTitle:hover{
     background-color: #f9c414;
     color: #b63b3b;
-}/*
-.threadTitle > a:link, a:visited {
-    color: #e3e8e6;
-    padding-left: 40px;
-    padding-bottom: 12px;
-    padding-top: 12px;
-    padding-right: 20px;
-    text-decoration: none;
 }
-.threadTitle > a:hover, a:active {
-    color: #b63b3b;
-}
-*/
+
 .lhs {
     background-color: #22758e;
     color: #e3e8e6;
