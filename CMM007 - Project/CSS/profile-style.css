@@ -91,3 +91,91 @@ img{
     background-color: #e3e8e6;
     padding: 5px;
 }
+
+@media (max-width:600px) {
+    .profile-flex-c{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #b63b3b;
+    }
+    .profile-flex-c > div {
+        margin: 10px;
+    }
+    #error_box{
+        background-color: #f9c414;
+        color: #4c4555 ;
+        margin: 20px;
+        padding: 10px;
+        text-align: center;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #lh-column{
+        flex-direction: column;
+        flex-grow: 1;
+        margin-right: 10px;
+        background-color: #e3e8e6;
+        max-width: 240px;
+    }
+    #projectList {
+        flex-direction: column;
+        align-content: space-around;
+    }
+
+    #projectList > a:link, a:visited{
+        color: #e3e8e6;
+        background-color: #b63b3b;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        padding-right: 5px;
+        display: inline-block;
+        margin-bottom: 5px;
+        text-decoration: none;
+    }
+
+    #projectList > a:hover, a:active {
+        color: #b63b3b;
+        background-color: #f9c414;
+    }
+
+    img{
+        display: block;
+        object-fit: scale-down;
+    }
+
+    #details{
+        margin-top: 20px;
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    #details > a:link, a:visited{
+        color: #e3e8e6;
+        background-color: #b63b3b;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        padding-right: 5px;
+        margin: 10px;
+        text-decoration: none;
+    }
+
+    #details > a:hover, a:active {
+        color: #b63b3b;
+        background-color: #f9c414;
+    }
+
+    #details-column{
+        flex-grow: 3;
+        max-width: 600px;
+        background-color: #e3e8e6;
+        padding: 5px;
+    }
+}

@@ -22,16 +22,16 @@ http://www.color-hex.com/color-palette/54871
     flex-direction: row;
     justify-content: space-around;
     max-width: 1000px;
-    max-height: 400px;
     margin-left: auto;
     margin-right: auto;
 }
-
+img{
+    display: block;
+    object-fit: scale-down;
+}
 
 #images{
-    height: 200px;
     max-width: 1000px;
-    width:1000px;
     background-color: #f9c414;
 }
 
@@ -47,3 +47,56 @@ http://www.color-hex.com/color-palette/54871
     height: 400px;
 }
 
+@media (max-width:800px) {
+    #columns{
+        padding: 10px;
+        column-count: 1;
+        text-align: justify;
+        color: #b63b3b;
+        background-color: #e3e8e6;
+    }
+}
+
+@media (max-width:600px) {
+    .imgcontainer{
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        max-height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #images{
+        max-width: 600px;
+        background-color: #f9c414;
+    }
+    img{
+        display: block;
+        object-fit: scale-down;
+    }
+
+    #columns{
+        padding: 10px;
+        column-count: 1;
+        text-align: justify;
+        color: #b63b3b;
+        background-color: #e3e8e6;
+    }
+    #social{
+        width: 600px;
+        height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

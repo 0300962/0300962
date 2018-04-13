@@ -128,3 +128,132 @@ input[type=submit]:hover {
     height: 20px;
     background-color:#4c4555 ;
 }
+
+@media (max-width:600px) {
+    .header-flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    input[type=button], input[type=submit] {
+        background-color: #b63b3b;
+        color: #e3e8e6;
+        padding: 2px;
+        border: none;
+        font-size: inherit;
+    }
+    input[type=submit]:hover {
+        background-color: #f9c414;
+        color: #b63b3b;
+    }
+    #Login {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #login{
+        max-width: 600px;
+        flex-direction: row;
+        color: #b63b3b;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #login > a:link, a:visited{
+        color: #e3e8e6;
+        background-color: #b63b3b;
+        padding-left: 1px;
+        padding-bottom: 1px;
+        padding-top: 1px;
+        padding-right: 1px;
+        text-decoration: none;
+    }
+
+    #login > a:hover, a:active {
+        color: #b63b3b;
+        background-color: #f9c414;
+    }
+
+    #cookiemonster {
+        background-color: #f9c414;
+        color: #4c4555 ;
+        padding: 2px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #22758e;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #navbar > div{
+        height: 20px;
+        margin: 5px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #b63b3b;
+        color: #e3e8e6;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border: 1px solid #f9c414;
+        border-radius: 10px 0 0 0;
+    }
+    #navbar > div:hover{
+        background-color: #f9c414;
+    }
+    #navbar > div > a:link, a:visited {
+        color: #e3e8e6;
+        padding: 5px;
+        text-decoration: none;
+    }
+    #navbar > div > a:hover, a:active {
+        color: #b63b3b;
+    }
+
+    #colourtest{
+        flex-direction: row;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #colour1{
+        width: 20px;
+        height: 20px;
+        background-color:#22758e ;
+    }
+    #colour2{
+        width: 20px;
+        height: 20px;
+        background-color:#b63b3b ;
+    }
+    #colour3{
+        width: 20px;
+        height: 20px;
+        background-color:#f9c414 ;
+    }
+    #colour4{
+        width: 20px;
+        height: 20px;
+        background-color:#e3e8e6 ;
+    }
+    #colour5{
+        width: 20px;
+        height: 20px;
+        background-color:#4c4555 ;
+    }
+}

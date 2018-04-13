@@ -99,7 +99,6 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
                 <?php
             } else {
-                echo "<div id='error_box'>Error - User must be logged-in to view project details!<br/>";
-                echo "<a href='projects.php' type='button'>Back</a><br/></div></div>";
+                echo "<div id='error_box'>Error - User must be logged-in to view project details!<br/></div></div>";
             }
         ?>

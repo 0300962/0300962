@@ -35,3 +35,29 @@ Images courtesy of www.pexels.com
     background-color: #e3e8e6;
 
 }
+@media (max-width:600px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .container > div{
+        margin: 5px;
+    }
+
+    #img1, #img2{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #txt1, #txt2{
+        padding: 5px;
+        text-align: justify;
+        color: #b63b3b;
+        background-color: #e3e8e6;
+
+    }
+}
