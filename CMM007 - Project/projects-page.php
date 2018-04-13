@@ -42,12 +42,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <div class = "container">
         <div id="controls">
-            <form name="controls" method="post">
+            <form name="controls" action = "projects.php" method="post">
                 <input type="text" name="search" placeholder="Search"><br/>
                 <!-- Tag selector?-->
                 <!-- Deadline selector?-->
                 <br/>
-                <input id="go" type="submit" value="Search!">
+                <input name="submit" type="submit" value="Search!">
             </form><br/>
             <a href='projects.php' type='button'>View all Projects</a><br/>
         <?php /* Checks for a logged-in, Cause user */
@@ -61,9 +61,19 @@ if (session_status() === PHP_SESSION_NONE) {
         <div id="projectlist">
             <?php
                 include_once 'Scripts/connection.php';
-                $sql = "SELECT name, tags, summary, deadline, image, projectNo
-                        FROM projects
-                        WHERE status = 1";
+                if (isset($_POST['search'])) {  /* User is performing a search */
+                    $search = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
+                    $sql = "SELECT name, tags, summary, deadline, image, projectNo
+                            FROM projects
+                            WHERE status = 1
+                            AND ((summary LIKE '%{$search}%') 
+                              OR (name LIKE '%{$search}%') 
+                              OR (tags LIKE '%{$search}%'))";
+                } else {  /* Returns all active projects */
+                    $sql = "SELECT name, tags, summary, deadline, image, projectNo
+                            FROM projects
+                            WHERE status = 1";
+                }
                 $result = mysqli_query($dbcon, $sql);
                 echo "<table><tr><th></th><th>Project</th><th>Project Summary</th>";
                 if (isset($_SESSION['logged-in'])) {
