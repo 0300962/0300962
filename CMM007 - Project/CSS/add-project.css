@@ -36,3 +36,55 @@ http://www.color-hex.com/color-palette/54871
     color: #4c4555 ;
     padding: 20px;
 }
+
+@media (max-width:800px) {
+    #form {
+        column-count: 1;
+        margin: 10px;
+        text-align: right;
+        color: #b63b3b;
+        background-color: #e3e8e6;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width:600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #banner {
+        display: block;
+        object-fit: scale-down;
+        max-width: 600px;
+    }
+
+    #intro {
+        color: #b63b3b;
+        background-color: #e3e8e6;
+        text-align: justify;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #form {
+        column-count: 1;
+        margin: 10px;
+        text-align: right;
+        color: #b63b3b;
+        background-color: #e3e8e6;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #error{
+        background-color: #f9c414;
+        color: #4c4555 ;
+        padding: 20px;
+    }
+}

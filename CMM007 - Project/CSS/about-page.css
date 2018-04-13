@@ -15,7 +15,6 @@ Images courtesy of www.pexels.com
     flex-direction: row;
     justify-content: space-around;
     max-width: 1000px;
-    /*max-height: 400px;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -24,8 +23,6 @@ Images courtesy of www.pexels.com
 }
 
 #img1, #img2{
-    /*max-width: 200px;*/
-    /*background-color: #f9c414;*/
 }
 
 #txt1, #txt2{
@@ -48,16 +45,30 @@ Images courtesy of www.pexels.com
         margin: 5px;
     }
 
-    #img1, #img2{
+    #img1 {
         margin-left: auto;
         margin-right: auto;
+        order: 1;
+    }
+    #img2{
+        margin-left: auto;
+        margin-right: auto;
+        order: 3;
     }
 
-    #txt1, #txt2{
+
+    #txt1{
         padding: 5px;
         text-align: justify;
         color: #b63b3b;
         background-color: #e3e8e6;
-
+        order: 2;
+    }
+    #txt2{
+        padding: 5px;
+        text-align: justify;
+        color: #b63b3b;
+        background-color: #e3e8e6;
+        order: 4;
     }
 }

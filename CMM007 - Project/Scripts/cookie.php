@@ -14,7 +14,7 @@ if (isset($_POST['accept'])) {
     /* Sets cookie to show that cookies are accepted, although only the Session ID is actually used */
     $accepted = "accepted";
     $val = "User_has_accepted_cookies";
-    setcookie($accepted, $val, time()+300, "/"); //5 minutes login time
+    setcookie($accepted, $val, time()+3600, "/");
 }
 
 echo "<script type='text/javascript'> location = '../index.php'</script>";

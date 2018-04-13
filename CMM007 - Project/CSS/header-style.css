@@ -164,6 +164,7 @@ input[type=submit]:hover {
         color: #b63b3b;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 20px;
     }
     #login > a:link, a:visited{
         color: #e3e8e6;
@@ -229,6 +230,8 @@ input[type=submit]:hover {
         display: flex;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     #colour1{
