@@ -37,11 +37,17 @@ http://www.color-hex.com/color-palette/54871
     padding: 20px;
 }
 
+@media (max-width:1000px) {
+    #banner > img {
+        max-width: 100%;
+    }
+}
+
 @media (max-width:800px) {
     #form {
         column-count: 1;
         margin: 10px;
-        text-align: right;
+        text-align: left;
         color: #b63b3b;
         background-color: #e3e8e6;
         margin-left: auto;
@@ -76,7 +82,7 @@ http://www.color-hex.com/color-palette/54871
     #form {
         column-count: 1;
         margin: 10px;
-        text-align: right;
+        text-align: left;
         color: #b63b3b;
         background-color: #e3e8e6;
         margin-left: auto;

@@ -43,11 +43,19 @@ http://www.color-hex.com/color-palette/54871
 ::-webkit-scrollbar-thumb:hover {
     background: #4c4555;
 }
+#links {
+    flex-direction: row;
+    justify-content: flex-end;
+}
 
 .threadTitle {
+    align-items: center;
     height: 20px;
     width: 200px;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: -20px;
     text-align: center;
     background-color: #b63b3b;
     color: #e3e8e6;
@@ -60,6 +68,10 @@ http://www.color-hex.com/color-palette/54871
     background-color: #f9c414;
     color: #b63b3b;
 }
+.msgtab.active{
+    color: #f9c414;
+    width: 200px;
+}
 
 .lhs {
     background-color: #22758e;
@@ -68,7 +80,7 @@ http://www.color-hex.com/color-palette/54871
     text-align: justify;
     padding: 10px;
     float: left;
-    margin: 10px;
+    margin: 5px;
 }
 
 .rhs {
@@ -78,7 +90,7 @@ http://www.color-hex.com/color-palette/54871
     text-align: justify;
     padding: 10px;
     float: right;
-    margin: 10px;
+    margin: 5px;
 }
 
 .error_box {
@@ -90,3 +102,41 @@ http://www.color-hex.com/color-palette/54871
     margin-right: auto;
 }
 
+@media (max-width: 600px) {
+    #links {
+        flex-direction: column;
+    }
+    .threadTitle {
+        height: 20px;
+        width: 200px;
+        margin: 5px;
+        text-align: center;
+        background-color: #b63b3b;
+        color: #e3e8e6;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border: 1px solid #f9c414;
+        border-radius: 10px 0 0 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (max-width: 500px) {
+    .lhs {
+        max-width: 100%;
+        text-align: justify;
+        padding: 10px;
+        margin: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rhs {
+        max-width: 100%;
+        text-align: justify;
+        padding: 10px;
+        margin: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

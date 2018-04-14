@@ -22,15 +22,22 @@ if (session_status() === PHP_SESSION_NONE) {
                 for (var i=0; i < msgpane.length; i++) {
                     msgpane[i].style.display = "none";
                 }
-                //Sets message thread to be visible
+                //Sets all tabs as inactive
+                msgtab = document.getElementsByClassName("msgtab");
+                for (var j=0; j < msgtab.length; j++) {
+                    msgtab[j].className =msgtab[j].className.replace(" active", "");
+                }
+
+                //Sets message thread to be visible and tab active
                 document.getElementById(threadNo).style.display = "block";
+                event.currentTarget.className += " active";
             }
         </script>
     </head>
 
     <body>
 
-    <div class = "container">
+    <div class = "container" id="links">
     <?php //Have to check for login status
     if(isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == TRUE)){
         include_once 'Scripts/connection.php';

@@ -180,6 +180,8 @@ img{
         max-width: 600px;
         background-color: #e3e8e6;
         padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
         order: 1;
     }
 }

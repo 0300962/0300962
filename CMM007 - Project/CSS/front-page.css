@@ -25,15 +25,7 @@ http://www.color-hex.com/color-palette/54871
     margin-left: auto;
     margin-right: auto;
 }
-img{
-    display: block;
-    object-fit: scale-down;
-}
 
-#images{
-    max-width: 1000px;
-    background-color: #f9c414;
-}
 
 #columns{
     padding: 10px;
@@ -47,6 +39,12 @@ img{
     height: 400px;
 }
 
+@media (max-width:1000px) {
+    #banner {
+        max-width: 100%;
+    }
+}
+
 @media (max-width:800px) {
     #columns{
         padding: 10px;
@@ -58,16 +56,6 @@ img{
 }
 
 @media (max-width:600px) {
-    .imgcontainer{
-        display: flex;
-        flex-direction: column;
-        max-width: 600px;
-        max-height: 200px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 5px;
-    }
-
     .container{
         display: flex;
         flex-direction: column;
@@ -75,15 +63,6 @@ img{
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    #images{
-        max-width: 600px;
-        background-color: #f9c414;
-    }
-    img{
-        display: block;
-        object-fit: scale-down;
     }
 
     #columns{
