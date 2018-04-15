@@ -11,12 +11,12 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (isset($_POST['accept'])) {
-    /* Sets cookie to show that cookies are accepted, although only the Session ID is actually used */
+    /* Sets cookie to show that cookies are accepted, although only the Session ID is actually used at this time */
     $accepted = "accepted";
     $val = "User_has_accepted_cookies";
     setcookie($accepted, $val, time()+3600, "/");
 }
-
+/* Forwards to front page once set */
 echo "<script type='text/javascript'> location = '../index.php'</script>";
 
 ?>

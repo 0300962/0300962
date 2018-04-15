@@ -14,9 +14,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <head>
         <link rel="stylesheet" href = "CSS/message.css" type="text/css">
         <script>
-            function changemsg(event, threadNo) {
+            function changemsg(event, threadNo) {  //Used to flick between messaging threads
                 var msgtab, msgpane;
-
                 //Clears all open tabs
                 msgpane = document.getElementsByClassName("threadContainer");
                 for (var i=0; i < msgpane.length; i++) {
@@ -27,7 +26,6 @@ if (session_status() === PHP_SESSION_NONE) {
                 for (var j=0; j < msgtab.length; j++) {
                     msgtab[j].className =msgtab[j].className.replace(" active", "");
                 }
-
                 //Sets message thread to be visible and tab active
                 document.getElementById(threadNo).style.display = "block";
                 event.currentTarget.className += " active";
@@ -38,10 +36,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <body>
 
     <div class = "container" id="links">
-    <?php //Have to check for login status
+    <?php /* Have to check for login status */
     if(isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == TRUE)){
         include_once 'Scripts/connection.php';
-
+        /* Gets list of projects that user is associated with */
         $sql = "SELECT DISTINCT P.projectNo as projectNo, P.name as name FROM Messages M, Projects P 
                 WHERE M.projectNo = P.projectNo
                 AND (fromUserNo = {$_SESSION['userno']}
@@ -51,13 +49,14 @@ if (session_status() === PHP_SESSION_NONE) {
         $projects = array();
         while ($row = mysqli_fetch_array($result)) { /* Creates navigation button for each project thread */
             echo "<div class='threadTitle'><div id='button{$row['projectNo']}' class='msgtab' onclick='changemsg(event, {$row['projectNo']})'>{$row['name']}</div></div>";
-            $projects[] = $row['projectNo']; /* Logs each project user is associated with */
+            $projects[] = $row['projectNo']; /* Logs each project number user is associated with */
         }
         echo "</div><div class = 'container'>";
         if (count($projects) == 0) {  /* Placeholder for no messages found */
             echo "<br/><div class='error_box'>You have no messages!  Users must be associated with a project in order to send messages.</div><br/>";
         }
         foreach ($projects as $no => $pno) {  /* Populates message threads with messages, newest at the top. */
+            /* Gets message content */
             $sql = "SELECT * FROM Messages 
                 WHERE projectNo = {$pno}
                 AND (fromUserNo = {$_SESSION['userno']}
@@ -71,11 +70,11 @@ if (session_status() === PHP_SESSION_NONE) {
             echo "<form name='message{$pno}' action='Scripts/messaging.php?project={$pno}' method='post'>";
             echo "<textarea title='message' name='message' rows='5' cols='60' maxlength='500'></textarea><br/>";
             echo "<input name='submit' type='submit' value='Send!'></form><br/>";
-
+            /* Threaded message display */
             echo "<div class='messages'>";
             while ($row = mysqli_fetch_array($result)) {
                 $tabNo = $row['projectNo'];
-                if ($row['fromUserNo'] == $_SESSION['userno']) { /* Used for threaded display */
+                if ($row['fromUserNo'] == $_SESSION['userno']) { /* Sets position & colour of messages */
                     echo "<div class='rhs'>";
                     echo "<h4>Sent {$row['msgDate']}</h4>";
                 } else {
@@ -88,7 +87,7 @@ if (session_status() === PHP_SESSION_NONE) {
             echo "</div></div>";
         }
 
-        if(isset($_GET['project'])) {
+        if(isset($_GET['project'])) { /* User is coming from a project 'Contact' button */
             /* Clicks the tab for the selected message thread */
             echo "<script>
                         document.getElementById('button{$_GET['project']}').click();
@@ -102,7 +101,7 @@ if (session_status() === PHP_SESSION_NONE) {
             }
         }
 
-    }  else {
+    }  else {  /* Unauthorised access */
         echo "<div class='error_box'>Error - User must be logged-in to use messaging!<br/></div></div>";
     }
     ?>

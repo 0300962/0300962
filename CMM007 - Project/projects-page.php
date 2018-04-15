@@ -49,7 +49,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <br/>
                 <input name="submit" type="submit" value="Search!">
             </form><br/>
-            <a href='projects.php' type='button'>View all Projects</a><br/>
+            <a href='projects.php' type='button'>View all Projects</a><br/> <!-- Clears search terms -->
         <?php /* Checks for a logged-in, Cause user */
             if(isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == TRUE)){
                 if ($_SESSION['type'] == 0) {
@@ -76,15 +76,15 @@ if (session_status() === PHP_SESSION_NONE) {
                 }
                 $result = mysqli_query($dbcon, $sql);
                 echo "<table><tr><th></th><th>Project</th><th>Project Summary</th>";
-                if (isset($_SESSION['logged-in'])) {
+                if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']) { /* Adds header to view project details for registered users*/
                     echo "<th>See More</th>";
                 }
                 echo "</tr>";
 
-                if(mysqli_num_rows($result) > 0) {
+                if(mysqli_num_rows($result) > 0) {  /* Populates project list */
                     while($row = mysqli_fetch_array($result)){
                         echo "<tr><td><img src = '{$row['image']}' alt = 'Project image'></td><td>{$row['name']}</td><td><p>{$row['summary']}</p></td>";
-                        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']) {
+                        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']) {  /* Allows logged-in users to view details */
                             echo "<td><a href='project-details.php?project={$row['projectNo']}' type='button'>More</a></td>";
                         }
                         echo "</tr>";

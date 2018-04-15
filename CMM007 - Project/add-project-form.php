@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
             echo "<div id='error'>Error - User must be logged-in to add new projects!</div></div>";
         } else {
             if ($_SESSION['type'] == 0) { /* Checks for Cause user */
-                if (isset($_GET['error'])) {
+                if (isset($_GET['error'])) { /* Something went wrong during creation */
                     echo "<div id='error'>";
                     switch ($_GET['error']) {
                         case 1:
@@ -78,7 +78,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </body>
             </html>
             <?php
-            } else {
+            } else {  /* Unauthorised access from a Helper user */
                 echo "<div id='error'>Error - Only Cause users may create new projects!<br/></div></div>";
             }
         }

@@ -18,7 +18,7 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 <body>
     <div class="header-flex-container">
-        <?php
+        <?php /* Performs the one-time positive acknowledgement of cookies; currently expires after 1hr */
             if (!isset($_COOKIE["accepted"])) {
                 echo "<div id='cookiemonster'>This site uses cookies to help us remember who you are.  Please click here to accept and close this banner: ";
                 echo "<form name='cook' action='Scripts/cookie.php?accept=y' method='post'> ";
@@ -32,7 +32,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </a>
         </div>
 
-        <div id="colourtest">
+        <div id="colourtest"> <!-- Was used during prototyping, but have grown fond of it -->
             <div id="colour1"></div>
             <div id="colour2"></div>
             <div id="colour3"></div>

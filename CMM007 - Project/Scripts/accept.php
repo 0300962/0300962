@@ -33,13 +33,13 @@ if(isset($_REQUEST['accept'])) {
     $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
             VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$projectOwner}', '{$msgDate}', 'User has accepted your project')";
     $result = mysqli_query($dbcon, $sql);
-
+    /* Returns to project details page */
     echo "<script type='text/javascript'> location = '../project-details.php?project={$projectNo}'</script>";
 
 } elseif(isset($_REQUEST['withdraw'])) {
     /* Helper has withdrawn from a project */
     $projectNo = filter_var($_POST['projNo'], FILTER_SANITIZE_NUMBER_INT);
-
+    /* Removes helper from the project */
     $sql = "UPDATE projects
             SET helperNo =  NULL
             WHERE projectNo = {$projectNo};";
@@ -88,6 +88,34 @@ if(isset($_REQUEST['accept'])) {
 
     echo "<script type='text/javascript'> location = '../project-details.php?project={$projectNo}'</script>";
     echo "Closed project";
+
+} elseif(isset($_REQUEST['reopen'])) {
+    /* Project creator has re-opened a closed project */
+    $projectNo = filter_var($_POST['projNo'], FILTER_SANITIZE_NUMBER_INT);
+    $sql = "UPDATE projects
+            SET status =  1
+            WHERE projectNo = {$projectNo};";
+    $result = mysqli_query($dbcon, $sql);
+    echo "Project re-opened.";
+
+    /* Gets details of the project */
+    $sql = "SELECT helperNo
+            FROM Projects
+            WHERE projectNo = {$projectNo}";
+    $result = mysqli_query($dbcon, $sql);
+    $row = mysqli_fetch_array($result);
+    $helper = $row['helperNo'];
+    if ($helper == NULL){
+        $helper = 0; /* Helpers will only see re-open messages if they're still attached to the project  */
+    }
+    $date = getdate();
+    $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
+    /* Sends a message to the project helper (if present) that the owner has reopened the project */
+    $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
+            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$helper}', '{$msgDate}', 'Owner has re-opened this project.')";
+    $result = mysqli_query($dbcon, $sql);
+
+    echo "<script type='text/javascript'> location = '../projects.php'</script>";
 
 } elseif(isset($_REQUEST['cancel'])) {
     /* Project creator has deleted a project */

@@ -26,6 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     $number = 1;
                 }
                 include_once 'Scripts/connection.php';
+                /* Gets details of default or requested project */
                 $sql = "SELECT P.name as pname, P.userNo as puserno, P.tags as ptags, P.summary as psummary, P.description as pdescription,
                               P.deadline as pdeadline, P.image as pimage, P.deadline as pdeadline, P.outputs as poutputs,
                               P.helperNo as phelperNo, P.status as status, U.name as uname
@@ -70,13 +71,20 @@ if (session_status() === PHP_SESSION_NONE) {
                                     }
                                 }
 
-                                if (($_SESSION['type'] == 0) && ($row['puserno'] == $_SESSION['userno'])) {
-                                    /* User is the project creator */
-                                    echo "<form method='post' action='Scripts/accept.php'>
-                                            <input name='projNo' type='hidden' value='{$number}'>
-                                            <input name='close' type='submit' value='Mark Project as Closed'>
-                                            </form><br/>";
-
+                                if (($_SESSION['type'] == 0) && ($row['puserno'] == $_SESSION['userno'])) {/* User is the project creator */
+                                    /* Allows creator to close/reopen their project, retaining data */
+                                    if ($row['status'] == 1){ /* Project is open */
+                                        echo "<form method='post' action='Scripts/accept.php'>
+                                                <input name='projNo' type='hidden' value='{$number}'>
+                                                <input name='close' type='submit' value='Mark Project as Closed'>
+                                                </form><br/>";
+                                        } else { /* Project is closed, but not cancelled */
+                                        echo "<form method='post' action='Scripts/accept.php'>
+                                                <input name='projNo' type='hidden' value='{$number}'>
+                                                <input name='reopen' type='submit' value='Reopen this Project'>
+                                                </form><br/>";
+                                        }
+                                    /* Allows creator to delete project, erasing data */
                                     echo "<form method='post' action='Scripts/accept.php'>
                                             <input name='projNo' type='hidden' value='{$number}'>
                                             <input name='cancel' type='submit' value='Cancel this Project'>
@@ -98,7 +106,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 </div>
                 <?php
-            } else {
+            } else { /* Unauthorised access */
                 echo "<div id='error_box'>Error - User must be logged-in to view project details!<br/></div></div>";
             }
         ?>

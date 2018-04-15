@@ -15,12 +15,13 @@ if (!$_SESSION['logged-in']) {  /* Redirects non-logged-in users to homepage */
 }
 
 include_once 'connection.php';
-
+/* Sanitizes user inputs */
 $message = filter_var($_POST['message'],FILTER_SANITIZE_STRING);
 $projectNo = filter_var($_GET['project'], FILTER_SANITIZE_NUMBER_INT);
+/* Compiles yyyy-mm-dd variable for message date */
 $date = getdate();
 $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
-
+/* Checks who is associated with project */
 $sql = "SELECT userNo, helperNo
             FROM Projects
             WHERE projectNo = {$projectNo}";
