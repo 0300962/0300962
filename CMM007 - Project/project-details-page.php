@@ -41,7 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div id = "lh-column">
                         <div id = "profile-pic">
                             <a href="<?php echo $row['pimage']; ?>">
-                                <img src="<?php echo $row['pimage']; ?>" alt = "Project picture" width="200px" height="200px" >
+                                <img src="<?php echo $row['pimage']; ?>" alt = "User-submitted Project picture" width="200px" height="200px" >
                             </a>
                         </div>
                         <div id = "details">

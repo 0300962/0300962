@@ -18,10 +18,13 @@
         function changer(img) {
             if (img === 'about') {
                 document.getElementById("banner").src = "img/about_banner.jpg";
+                document.getElementById("banner").alt = "Stock photo of someone working";
             } else if (img === 'projects'){
                 document.getElementById("banner").src = "img/projects_banner.jpg";
+                document.getElementById("banner").alt = "Stock photo of someone writing on a whiteboard";
             } else {
                 document.getElementById("banner").src = "img/profile_banner.jpg";
+                document.getElementById("banner").alt = "Stock photo of two people taking a photo together";
             }
         }
     </script>

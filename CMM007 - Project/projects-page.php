@@ -15,35 +15,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href = "CSS/projects.css" type="text/css">
 </head>
 <body>
-    <div class="container">  <!-- Error message panel -->
-    <?php
-    if (isset($_GET['error'])) {
-        echo "<div id=error_box>";
-        switch ($_GET['error']) {
-            case 1:
-                echo "Error: Image greater than 750KB!";
-                break;
-            case 2:
-                echo "Error: Image upload failed.  Please contact System Administrator.";
-                break;
-            case 3:
-                echo "Error: Image file not .jpg or .jpeg.";
-                break;
-            case 4:
-                echo "Error: Could not create new project.  Please contact System Administrator.";
-                break;
-            default:
-                echo "Error: Unknown error.  Please contact System Administrator.";
-        }
-    }
-    echo "</div>";
-    ?>
-    </div>
-
     <div class = "container">
         <div id="controls">
             <form name="controls" action = "projects.php" method="post">
-                <input type="text" name="search" placeholder="Search"><br/>
+                <input type="text" name="search" placeholder="Search" required><br/>
                 <!-- Tag selector?-->
                 <!-- Deadline selector?-->
                 <br/>

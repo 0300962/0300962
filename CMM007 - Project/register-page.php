@@ -71,10 +71,10 @@ if (session_status() === PHP_SESSION_NONE) {
             <h3>Please read carefully before creating an account:</h3>
             <ul>
                 <li>Do not give out any personal information, in profiles or messages.</li>
-                <li>This site is not liable for any data loss that may occur as a result of using it.</li>
+                <li>This site is not liable for any data loss or disclosure that may occur as a result of using it.</li>
                 <li>Login details are stored with a robust hash algorithm, however it is strongly recommended to not reuse passwords on other services.</li>
                 <li>This site may use cookies as part of the login system.</li>
-                <li>Labour For Change is a non-political entity.</li>
+                <li>Labour For Change is a non-political, non-commercial entity.  Helpers receive no remuneration and Causes pay no money to use this service.</li>
                 <li>Labour For Change does not perform any vetting or authentication of users.  This system was developed as an academic exercise.</li>
             </ul>
         </div>

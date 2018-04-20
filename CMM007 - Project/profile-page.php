@@ -13,10 +13,12 @@ if (session_status() === PHP_SESSION_NONE) {
 if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
     if(isset($_GET['profile'])) {
         /*User has requested another user's profile page*/
+        $reqNo = filter_var($_GET['profile'], FILTER_SANITIZE_NUMBER_INT);
+
         include_once 'Scripts/connection.php';
         $sql = "SELECT name, image, description, reputation, userType
                 FROM Users
-                WHERE userNo = {$_GET['profile']}";
+                WHERE userNo = {$reqNo}";
         $result = mysqli_query($dbcon, $sql);
         $row = mysqli_fetch_array($result);
         $name = $row['name'];
@@ -57,19 +59,19 @@ if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
     <div id = "lh-column">
         <div id = "profile-pic">
             <a href="<?php echo $image; ?>">
-                <img src="<?php echo $image; ?>" alt = "Profile picture" width="200px" height="200px" >
+                <img src="<?php echo $image; ?>" alt = "User-submitted Profile picture" width="200px" height="200px" >
             </a>
         </div>
         <div id = "details">
             Name: <?php echo $name ?><br/>
-            Type: <?php if ($userType == 1) {
+            Type: <?php if ($userType == 1) { //Displays the type of user
                 echo "Helper";
             } else {
                 echo "Cause";
             }?><br/>
             My reputation: <?php echo $reputation ?>/10<br/>
             My projects: <br/><br/>
-            <?php
+            <?php  /* Displays titles and links to associated projects */
             if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
                 include_once 'Scripts/connection.php';
                 if ($userType == 1) { /* Gets project No's that the Helper user has helped with */
@@ -92,8 +94,6 @@ if (isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == true)){
             }
             ?>
         </div>
-        <!--Consider adding button for logged-in users to contact?-->
-
     </div>
 
     <div id = "details-column">

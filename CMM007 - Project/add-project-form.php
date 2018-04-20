@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <body>
 <div class="container">
     <div id="banner">
-        <img src="img/projects_banner2.jpg" alt="Create a new project">
+        <img src="img/projects_banner2.jpg" alt="Create a new project - Stock photo of water splashing">
     </div>
 </div>
 <div class = "container">
@@ -28,7 +28,8 @@ if (session_status() === PHP_SESSION_NONE) {
             if ($_SESSION['type'] == 0) { /* Checks for Cause user */
                 if (isset($_GET['error'])) { /* Something went wrong during creation */
                     echo "<div id='error'>";
-                    switch ($_GET['error']) {
+                    $error_code = filter_var($_GET['error'], FILTER_SANITIZE_NUMBER_INT);
+                    switch ($error_code) {
                         case 1:
                             echo "Error: Image exceeds maximum size (750KB).";
                             break;

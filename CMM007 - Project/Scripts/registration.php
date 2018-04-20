@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Bobsan
+ * User: 0300962
  * Date: 19-Mar-18
  * Time: 5:57 PM
  */
@@ -84,7 +84,7 @@ if ($pw != $pw2) { /* Checks consistency of password entry */
                     }
                 }
 
-                /*Checks whether the UserType flag has been tampered-with*/
+                /*Checks whether the UserType flag has been tampered with*/
                 if (!in_array($type, range(0, 1, 1))) {
                     echo "Invalid user type";
                     undoReg();
@@ -112,7 +112,7 @@ if ($pw != $pw2) { /* Checks consistency of password entry */
                         redirect(6);
                     }
                 }
-            } else {
+            } else {  /* Problem adding login details to first query */
                 echo "Couldn't create login details";
                 //echo "{$sql}";
                 redirect(4);

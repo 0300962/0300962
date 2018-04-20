@@ -22,8 +22,8 @@ if ((isset($_SESSION['logged-in'])) && ($_SESSION['logged-in'] == TRUE)) {
     echo "<div id='login'>
         <form name='loginform' action='Scripts/login.php' method='post'>
             Welcome! Please sign in:<br/>
-            <input type='text' name='username' placeholder='Email Address' ><br/>
-            <input type='password' name='password' placeholder='Password'><br/>
+            <input type='email' name='username' placeholder='Email Address' required><br/>
+            <input type='password' name='password' placeholder='Password' required><br/>
             <input type='submit' name='login' value='Sign in'>
         </form><br/>
         Or Register: <a href='register.php' type='button'>Register</a>
