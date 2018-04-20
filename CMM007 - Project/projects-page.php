@@ -22,7 +22,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Tag selector?-->
                 <!-- Deadline selector?-->
                 <br/>
-                <input name="submit" type="submit" value="Search!">
+                <input name="submit" type="submit" value="Search Summary Info">
             </form><br/>
             <a href='projects.php' type='button'>View all Projects</a><br/> <!-- Clears search terms -->
         <?php /* Checks for a logged-in, Cause user */
@@ -50,7 +50,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             WHERE status = 1";
                 }
                 $result = mysqli_query($dbcon, $sql);
-                echo "<table><tr><th></th><th>Project</th><th>Project Summary</th>";
+                echo "<table><tr><th colspan='2' align='center'>Project</th><th>Summary</th>";
                 if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']) { /* Adds header to view project details for registered users*/
                     echo "<th>See More</th>";
                 }
