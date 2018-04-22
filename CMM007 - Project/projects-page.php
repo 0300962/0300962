@@ -18,17 +18,17 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class = "container">
         <div id="controls">
             <form name="controls" action = "projects.php" method="post">
-                <input type="text" name="search" placeholder="Search" required><br/>
-                <!-- Tag selector?-->
-                <!-- Deadline selector?-->
+                <input type="text" name="search" placeholder="Search"><br/>
                 <br/>
-                <input name="submit" type="submit" value="Search Summary Info">
+                <input name="submit" type="submit" value="Search Summary Info"><br/></form><br/>
+            <form name="sort" action="projects.php" method="post">
+                <input name="sort" type="submit" value="Sort by nearest deadline">
             </form><br/>
             <a href='projects.php' type='button'>View all Projects</a><br/> <!-- Clears search terms -->
         <?php /* Checks for a logged-in, Cause user */
             if(isset($_SESSION['logged-in']) && ($_SESSION['logged-in'] == TRUE)){
                 if ($_SESSION['type'] == 0) {
-                    echo "<br/><a href='new-project.php' type='button'>Create a New Project</a>";
+                    echo "<br/><br/><a href='new-project.php' type='button'>Create a New Project</a>";
                 }
             }
         ?>
@@ -45,9 +45,14 @@ if (session_status() === PHP_SESSION_NONE) {
                               OR (name LIKE '%{$search}%') 
                               OR (tags LIKE '%{$search}%'))";
                 } else {  /* Returns all active projects */
+                    if (isset($_REQUEST['sort'])) {
+                        $sort = "ORDER BY cast(deadline as datetime) ASC";
+                    } else {
+                        $sort = "";
+                    }
                     $sql = "SELECT name, tags, summary, deadline, image, projectNo
                             FROM projects
-                            WHERE status = 1";
+                            WHERE status = 1 {$sort}";
                 }
                 $result = mysqli_query($dbcon, $sql);
                 echo "<table><tr><th colspan='2' align='center'>Project</th><th>Summary</th>";
