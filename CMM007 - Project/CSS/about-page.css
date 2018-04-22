@@ -23,6 +23,7 @@ Images courtesy of www.pexels.com
 }
 
 #img1, #img2{
+    align-self: center;
 }
 
 #txt1, #txt2{
