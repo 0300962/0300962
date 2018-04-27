@@ -20,7 +20,7 @@
         <div id="txt1">
             <h3>Contact</h3>
             <p>This site was developed as an academic project by Brendan Campbell, studying CMM-007 Intranet Systems Development
-                as part of an MSc in IT and Network Management at teh Robert Gordon University.  If you have any comments
+                as part of an MSc in IT and Network Management at the Robert Gordon University.  If you have any comments
                 or questions or want to report something you've seen on this site, please get in touch using the links at the bottom of any page.</p>
             <p>Development would not have been possible without excessive amounts of coffee from my kitchen, which you can explore here below:</p>
         </div>

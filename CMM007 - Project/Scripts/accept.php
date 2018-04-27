@@ -31,7 +31,7 @@ if(isset($_REQUEST['accept'])) {
     $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
     /* Sends a message to the project owner that the helper has accepted the project */
     $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
-            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$projectOwner}', '{$msgDate}', 'User has accepted your project')";
+            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$projectOwner}', '{$msgDate}', 'A User has accepted your project')";
     $result = mysqli_query($dbcon, $sql);
     /* Returns to project details page */
     echo "<script type='text/javascript'> location = '../project-details.php?project={$projectNo}'</script>";
@@ -56,7 +56,7 @@ if(isset($_REQUEST['accept'])) {
     $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
     /* Sends a message to the project owner that the helper has left the project */
     $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
-            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$projectOwner}', '{$msgDate}', 'User has withdrawn from your project')";
+            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$projectOwner}', '{$msgDate}', 'A user has withdrawn from your project')";
     $result = mysqli_query($dbcon, $sql);
 
     echo "<script type='text/javascript'> location = '../project-details.php?project={$projectNo}'</script>";
@@ -83,7 +83,7 @@ if(isset($_REQUEST['accept'])) {
     $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
     /* Sends a message to the project helper (if present) that the owner has closed the project */
     $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
-            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$helper}', '{$msgDate}', 'Owner has marked this project as completed')";
+            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$helper}', '{$msgDate}', 'The Project Owner has marked this project as completed')";
     $result = mysqli_query($dbcon, $sql);
 
     echo "<script type='text/javascript'> location = '../project-details.php?project={$projectNo}'</script>";
@@ -112,7 +112,7 @@ if(isset($_REQUEST['accept'])) {
     $msgDate = $date['year']."-".$date['mon']."-".$date['mday'];
     /* Sends a message to the project helper (if present) that the owner has reopened the project */
     $sql = "INSERT INTO messages (projectNo, fromUserNo, toUserNo, msgDate, message)
-            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$helper}', '{$msgDate}', 'Owner has re-opened this project.')";
+            VALUES ('{$projectNo}', '{$_SESSION['userno']}', '{$helper}', '{$msgDate}', 'The Project Owner has re-opened this project.')";
     $result = mysqli_query($dbcon, $sql);
 
     echo "<script type='text/javascript'> location = '../projects.php'</script>";
